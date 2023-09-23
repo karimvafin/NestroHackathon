@@ -1,0 +1,27 @@
+
+.results-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .results-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  
+
+  .block {
+    width: 600px;
+    height: 600px;
+    background-color: #f0f0f0; 
+    margin: 0 auto;
+    border: 1px solid #ccc;
+  }
+  

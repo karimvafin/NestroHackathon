@@ -1,0 +1,6 @@
+.block1 {
+    box-sizing: border-box;
+    /* border: 2px solid black; */
+    width: 800px;
+    height: 600px;
+}
