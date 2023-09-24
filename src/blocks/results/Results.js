@@ -4,19 +4,13 @@ import { useLocation } from 'react-router-dom';
 import { Card, CardType, CardWrapper } from '../../components/cards/Card';
 import DoughnutChart from '../../components/chart/DoughnutChart';
 import './Results.css';
+import { drawRoad } from "../../assets/utils/drawRoad";
 
 export const Results = () => {
   
-  const location = useLocation()
-
-  console.log(location)
-
+  const location = useLocation();
   const params = queryString.parse(location.search);
-
-  console.log(parseFloat(params.lat))
-
   const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
-
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -46,11 +40,7 @@ export const Results = () => {
           map: map,
         });
 
-        marker.addListener('click', () => {
-        });
-
-        map.addListener('click', (event) => {
-        });
+        drawRoad(map, [initialLatLng]);
       })
       .catch((error) => {
         console.error('Ошибка при загрузке Google Maps:', error);
