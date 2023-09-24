@@ -1,40 +1,85 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Wrapper } from "@googlemaps/react-wrapper";
 
-export const Block1 = ({ points }) => {
-  const apiKey = 'AIzaSyAYMBaXIt_-PtQ2W2_oRMBDde022yKLNcA';
-  const mapRef = useRef(null);
+export const Block1 = () => {
+  const mapOptions = {
+    center: { lat: 43.66293, lng: -79.39314 },
+    zoom: 10,
+    disableDefaultUI: true,
+  };
 
-  useEffect(() => {
-    const map = new window.google.maps.Map(mapRef.current, {
-      center: { lat: 50.906, lng: 34.793991999999996 },
-      zoom: 10,
-      mapTypeControl: false, 
-    });
+  function MyMap() {
+    const [map, setMap] = useState();
+    const ref = useRef();
 
-    points.forEach((point) => {
-      new window.google.maps.Marker({
-        position: { lat: point.lat, lng: point.lng },
+    useEffect(() => {
+      setMap(new window.google.maps.Map(ref.current, mapOptions));
+    }, []);
+
+    useEffect(() => {
+      if (map) {
+        createMarkers(map);
+        createRoads(map);
+      }
+    }, [map]);
+
+    const createMarkers = (map) => {
+      const marker = new window.google.maps.Marker({
+        position: { lat: 43.651070, lng: -79.347015 }, 
         map: map,
-        title: point.label,
+        icon: {
+          url: '../assets/marker.png',
+          scaledSize: new window.google.maps.Size(32, 32),
+        },
       });
-    });
-  }, [points]);
+
+    };
+
+    const createRoads = (map) => {
+      const coordinates1 = [
+        { lat: 43.651070, lng: -79.347015 },
+        { lat: 43.652070, lng: -79.347015 },
+      ];
+
+      const coordinates2 = [
+        { lat: 43.653070, lng: -79.348015 },
+        { lat: 43.654070, lng: -79.348015 },
+      ];
+
+      const polyline1 = new window.google.maps.Polyline({
+        path: coordinates1,
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 4,
+      });
+
+      const polyline2 = new window.google.maps.Polyline({
+        path: coordinates2,
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 4,
+      });
+
+      polyline1.setMap(map);
+      polyline2.setMap(map);
+    };
+
+    return (
+      <>
+        <div ref={ref} id="map" style={{ width: '800px', height: '600px' }} />
+      </>
+    );
+  }
 
   return (
-    <div className="block1">
-      <div
-        ref={mapRef}
-        style={{ width: '800px', height: '600px', border: '0' }}
-      ></div>
-      <div>
-        {points.map((point) => (
-          <div key={point.id}>
-            {/* <Link to={`/results/${point.id}`}>{point.label}</Link> */}
-            <Link to={`/results`}>{point.label}</Link>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Wrapper
+      apiKey="AIzaSyB7ggCeswm2Oq7JqVR6qXE1l5Ua631yFo0"
+      version="beta"
+      libraries={["marker"]}
+    >
+      <MyMap />
+    </Wrapper>
   );
 };

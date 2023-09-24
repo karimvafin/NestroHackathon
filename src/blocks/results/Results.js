@@ -1,13 +1,31 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // Импорт Link
 import './Results.css';
 import { Card, CardType, CardWrapper } from '../../components/cards/Card';
 import DoughnutChart from '../../components/chart/DoughnutChart';
-import { Marker, Popup, TileLayer } from 'react-leaflet';
+import React, { useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Marker, Popup, TileLayer, MapContainer } from 'react-leaflet';
+import { roadsData } from '../../assets/roads';
+import RoadMarkers from '../RoadMarkers';
 
 export const Results = () => {
-  const { pointId } = useParams();
-  const navigate = useNavigate();
+  const { roadId } = useParams(); 
+
+  const selectedRoad = roadsData.find((road) => road.id === parseInt(roadId));
+
+  const mapOptions = {
+    center: selectedRoad.coordinates[0], 
+    zoom: 14, 
+  };
+
+  const ref = useRef();
+
+  useEffect(() => {
+    const map = new window.google.maps.Map(ref.current, mapOptions);
+
+    return () => {
+    };
+  }, [roadId, selectedRoad]);
 
   const elements = [
     {
@@ -24,24 +42,11 @@ export const Results = () => {
     },
   ];
 
-  const points = [
-    {
-      id: 1,
-      lat: 50.906,
-      lng: 34.793991999999996,
-      label: 'Точка 1',
-    },
-  ];
-
-  const handleMarkerClick = (pointId) => {
-    navigate(`/results/${pointId}`);
-  };
 
   return (
     <div className="results-page">
       <div className="chart-container">
-        <div className="block">
-        </div>
+        
         <CardWrapper>
           {elements.map((el, index) => (
             <Card
