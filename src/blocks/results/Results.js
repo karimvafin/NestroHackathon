@@ -1,31 +1,61 @@
-import { useParams, Link } from 'react-router-dom'; // Импорт Link
-import './Results.css';
+import queryString from "query-string";
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Card, CardType, CardWrapper } from '../../components/cards/Card';
 import DoughnutChart from '../../components/chart/DoughnutChart';
-import React, { useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Marker, Popup, TileLayer, MapContainer } from 'react-leaflet';
-import { roadsData } from '../../assets/roads';
-import RoadMarkers from '../RoadMarkers';
+import './Results.css';
 
 export const Results = () => {
-  const { roadId } = useParams(); 
+  
+  const location = useLocation()
 
-  const selectedRoad = roadsData.find((road) => road.id === parseInt(roadId));
+  console.log(location)
 
-  const mapOptions = {
-    center: selectedRoad.coordinates[0], 
-    zoom: 14, 
-  };
+  const params = queryString.parse(location.search);
 
-  const ref = useRef();
+  console.log(parseFloat(params.lat))
+
+  const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
+
+  const mapRef = useRef(null);
 
   useEffect(() => {
-    const map = new window.google.maps.Map(ref.current, mapOptions);
-
-    return () => {
+    const loadGoogleMaps = () => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ggCeswm2Oq7JqVR6qXE1l5Ua631yFo0`;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
     };
-  }, [roadId, selectedRoad]);
+
+    loadGoogleMaps()
+      .then(() => {
+        const mapOptions = {
+          center: initialLatLng,
+          zoom: 15,
+          disableDefaultUI: true,
+        };
+
+        const map = new window.google.maps.Map(mapRef.current, mapOptions);
+
+        const marker = new window.google.maps.Marker({
+          position: initialLatLng,
+          map: map,
+        });
+
+        marker.addListener('click', () => {
+        });
+
+        map.addListener('click', (event) => {
+        });
+      })
+      .catch((error) => {
+        console.error('Ошибка при загрузке Google Maps:', error);
+      });
+  }, []);
 
   const elements = [
     {
@@ -46,7 +76,7 @@ export const Results = () => {
   return (
     <div className="results-page">
       <div className="chart-container">
-        
+        <div className='block' ref={mapRef} style={{ width: '1000px', height: '400px' }}></div>
         <CardWrapper>
           {elements.map((el, index) => (
             <Card

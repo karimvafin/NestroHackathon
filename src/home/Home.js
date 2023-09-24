@@ -1,6 +1,5 @@
 import "./Home.css"
-import { Block1 } from "../blocks/Block1"
-import { Header } from "../blocks/header/Header"
+import { Block1 }  from '../blocks/block1/Block1'
 
 export const Home = () => {
 
@@ -11,18 +10,7 @@ export const Home = () => {
 
     return(
         <div className="home">
-            {/* <Header/> */}
-            {/* <div className="home-wrapper"> */}
             <Block1/>
-            {/* <Block1 points={points} onMarkerClick={handleMarkerClick} /> */}
-                {/* <ul>
-                    <li>ghj</li>
-                    <li>ghj</li>
-                    <li>ghj</li>
-                    <li>ghj</li>
-                    <li>ghj</li>
-                </ul> */}
-            {/* </div> */}
         </div>
     )
 }
