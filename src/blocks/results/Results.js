@@ -11,8 +11,6 @@ export const Results = () => {
   const params = queryString.parse(location.search);
   const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
   const mapRef = useRef(null);
-
-  // Создаем состояние для хранения данных с бэкенда
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
@@ -72,10 +70,13 @@ export const Results = () => {
   const id = params.id;
 
   useEffect(() => {
-    // Отправляем GET-запрос на бэкенд с параметрами name и id
-    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${params.id}&name=${params.number}`)
+    axios.get('https://nestro.pavel0dibr.repl.co/road', {
+      params: {
+        id: params.id,
+        name: params.number
+      }
+    })
       .then((response) => {
-        // Обрабатываем ответ и сохраняем данные в состояние
         setResponseData(response.data);
         console.log(response.data); 
       })
@@ -91,16 +92,15 @@ export const Results = () => {
       </div>
       <div className='results-text'>Результаты</div>
       <CardWrapper>
-          {elements.map((el, index) => (
-            <Card
-              key={index}
-              chart={el.chart}
-              text={el.text}
-              cardType={CardType.FIRST}
-            />
-          ))}
-        </CardWrapper>
-      {/* Отображение данных, полученных с бэкенда */}
+        {elements.map((el, index) => (
+          <Card
+            key={index}
+            chart={el.chart}
+            text={el.text}
+            cardType={CardType.FIRST}
+          />
+        ))}
+      </CardWrapper>
       {responseData && (
         <div>
           <p>Данные с бэкенда:</p>
