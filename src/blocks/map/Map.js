@@ -14,8 +14,6 @@ function Map() {
   const navigate = useNavigate();
 
   const createRoads = (map) => {
-    const directionsService = new window.google.maps.DirectionsService();
-
     roadsData.forEach(({ id, name, coordinates }) => {
       if (coordinates.length >= 2) {
         const start = new window.google.maps.LatLng(coordinates[0].lat, coordinates[0].lng);
@@ -27,14 +25,16 @@ function Map() {
           travelMode: 'DRIVING',
         };
 
+        const directionsService = new window.google.maps.DirectionsService();
+
         directionsService.route(request, (response, status) => {
           if (status === 'OK') {
             const directionsRenderer = new window.google.maps.DirectionsRenderer({
               map: map,
               polylineOptions: {
-                strokeColor: '#FF0000',
+                strokeColor: '#FF0000', 
                 strokeOpacity: 1.0,
-                strokeWeight: 4,
+                strokeWeight: 10,
               },
             });
 
@@ -48,7 +48,6 @@ function Map() {
               clickable: true,
             });
 
-            // Привязываем данные о дороге к Polyline
             roadPolyline.set("roadId", id);
             roadPolyline.set("roadName", name);
 
@@ -61,7 +60,8 @@ function Map() {
               const id = roadPolyline.get("roadId");
               const name = roadPolyline.get("roadName");
               console.log(`ID: ${id}, Name: ${name}`);
-              navigate(`/results?lng=${lng}&lat=${lat}`);
+              
+              navigate(`/results?lng=${lng}&lat=${lat}&number=${id}&id=${name}`);
             });
           } else {
             console.error('Directions request failed:', status);

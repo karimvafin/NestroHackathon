@@ -6,11 +6,8 @@ import DoughnutChart from '../../components/chart/DoughnutChart';
 import './Results.css';
 
 export const Results = () => {
-  
-  const location = useLocation()
-  console.log(location)
+  const location = useLocation();
   const params = queryString.parse(location.search);
-  console.log(parseFloat(params.lat))
   const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
   const mapRef = useRef(null);
 
@@ -67,6 +64,10 @@ export const Results = () => {
     },
   ];
 
+  const number = params.number;
+  const id = params.id;
+  console.log(id)
+  console.log(number)
 
   return (
     <div className="results-page">
