@@ -1,9 +1,10 @@
-import queryString from "query-string";
 import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Card, CardType, CardWrapper } from '../../components/cards/Card';
 import DoughnutChart from '../../components/chart/DoughnutChart';
 import './Results.css';
+import axios from 'axios'; 
+import queryString from 'query-string';
 
 export const Results = () => {
   const location = useLocation();
@@ -66,19 +67,31 @@ export const Results = () => {
 
   const number = params.number;
   const id = params.id;
-  console.log(id)
-  console.log(number)
+  console.log(id);
+  console.log(number);
+
+  useEffect(() => {
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${id}&name=${params.name}`)
+      .then((response) => {
+        console.log(response.data); 
+      })
+      .catch((error) => {
+        console.error('Ошибка при отправке GET-запроса:', error);
+      });
+  }, []);
 
   return (
     <div className="results-page">
-      <div className="text-block">
+      {/* <div className="text-block">
         <div className="text-block__white">
           <div className='block2-text2'>Results</div>
         </div>
-      </div>
+      </div> */}
       <div className="chart-container">
-        <div className='block' ref={mapRef} style={{ width: '1000px', height: '400px' }}></div>
-        <CardWrapper>
+        <div className='block' ref={mapRef} style={{ width: '800px', height: '400px' }}></div>
+      </div>
+      <div className='results-text'>Результаты</div>
+      <CardWrapper>
           {elements.map((el, index) => (
             <Card
               key={index}
@@ -88,7 +101,8 @@ export const Results = () => {
             />
           ))}
         </CardWrapper>
-      </div>
     </div>
   );
 };
+
+export default Results;

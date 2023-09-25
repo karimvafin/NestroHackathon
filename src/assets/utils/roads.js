@@ -1519,6 +1519,7 @@ export const roadsData = [
     "travelMode": "DRIVING",
     "rating": 94
   },
+  // роор
   {
     "id": 532,
     "name": "Karanovac - Mitrović",
