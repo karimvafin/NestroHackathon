@@ -73,7 +73,7 @@ export const Results = () => {
 
   useEffect(() => {
     // Отправляем GET-запрос на бэкенд с параметрами name и id
-    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${id}&name=${number}`)
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${params.id}&name=${params.number}`)
       .then((response) => {
         // Обрабатываем ответ и сохраняем данные в состояние
         setResponseData(response.data);
