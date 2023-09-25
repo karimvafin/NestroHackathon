@@ -70,7 +70,7 @@ export const Results = () => {
   const id = params.id;
 
   useEffect(() => {
-    axios.get('https://nestro.pavel0dibr.repl.co/road?id=${id}', {
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${id}`, {
       params: {
         id: params.id,
         name: params.number
