@@ -13,25 +13,10 @@ function Map() {
   const ref = useRef();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadMap = () => {
-      setMap(new window.google.maps.Map(ref.current, mapOptions));
-    };
-
-    if (!window.google || !window.google.maps) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ggCeswm2Oq7JqVR6qXE1l5Ua631yFo0&libraries=places`;
-      script.onload = loadMap;
-      document.head.appendChild(script);
-    } else {
-      loadMap();
-    }
-  }, []);
-
   const createRoads = (map) => {
     const directionsService = new window.google.maps.DirectionsService();
 
-    roadsData.forEach(({ id, coordinates }) => {
+    roadsData.forEach(({ id, name, coordinates }) => {
       if (coordinates.length >= 2) {
         const start = new window.google.maps.LatLng(coordinates[0].lat, coordinates[0].lng);
         const end = new window.google.maps.LatLng(coordinates[1].lat, coordinates[1].lng);
@@ -47,7 +32,7 @@ function Map() {
             const directionsRenderer = new window.google.maps.DirectionsRenderer({
               map: map,
               polylineOptions: {
-                strokeColor: "#FF0000",
+                strokeColor: '#FF0000',
                 strokeOpacity: 1.0,
                 strokeWeight: 4,
               },
@@ -57,18 +42,25 @@ function Map() {
 
             const routePolyline = directionsRenderer.getDirections().routes[0].overview_polyline;
             const path = window.google.maps.geometry.encoding.decodePath(routePolyline);
-            const clickablePolyline = new window.google.maps.Polyline({
+
+            const roadPolyline = new window.google.maps.Polyline({
               path: path,
               clickable: true,
             });
-            clickablePolyline.setMap(map);
 
-            window.google.maps.event.addListener(clickablePolyline, 'click', function (e) {
+            // Привязываем данные о дороге к Polyline
+            roadPolyline.set("roadId", id);
+            roadPolyline.set("roadName", name);
+
+            roadPolyline.setMap(map);
+
+            window.google.maps.event.addListener(roadPolyline, 'click', function (e) {
               const latLng = e.latLng;
               const lat = latLng.lat();
               const lng = latLng.lng();
-              const id = findRoadIdByCoordinates(lat, lng);
-              console.log(id);
+              const id = roadPolyline.get("roadId");
+              const name = roadPolyline.get("roadName");
+              console.log(`ID: ${id}, Name: ${name}`);
               navigate(`/results?lng=${lng}&lat=${lat}`);
             });
           } else {
@@ -79,16 +71,20 @@ function Map() {
     });
   };
 
-  const findRoadIdByCoordinates = (lat, lng) => {
-    for (const road of roadsData) {
-      for (const coord of road.coordinates) {
-        if (coord.lat === lat && coord.lng === lng) {
-          return road.id;
-        }
-      }
+  useEffect(() => {
+    const loadMap = () => {
+      setMap(new window.google.maps.Map(ref.current, mapOptions));
+    };
+
+    if (!window.google || !window.google.maps) {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ggCeswm2Oq7JqVR6qXE1l5Ua631yFo0&libraries=places`;
+      script.onload = loadMap;
+      document.head.appendChild(script);
+    } else {
+      loadMap();
     }
-    return null;
-  };
+  }, []);
 
   useEffect(() => {
     if (map) {
