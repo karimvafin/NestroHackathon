@@ -1,5 +1,5 @@
 import pandas as pd
-import data
+import src.data as data
 
 
 class ClientPropagator:
@@ -17,7 +17,6 @@ class ClientPropagator:
         if self.roads_potential is None:
             self.total_pot = {}
             for ind, road in data.roads_df.iterrows():
-                print(ind)
                 pot = 0
                 try:
                     l = road['len'] / len(eval(road['roads_coords']))
@@ -29,7 +28,7 @@ class ClientPropagator:
 
             roads_and_potential = data.roads_df.copy()
             roads_and_potential['potential'] = pd.Series(self.total_pot.values())
-            roads_and_potential.to_excel('potential.xlsx')
+            roads_and_potential.to_excel('data/roads_potential.xlsx')
 
     def calc_population_potential(self, road_ind, lat, lon):
         """Расчет потенциала от населения"""
