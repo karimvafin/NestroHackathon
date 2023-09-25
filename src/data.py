@@ -1,12 +1,12 @@
 import pandas as pd
 
-roads_df = pd.read_excel("data/roads.xlsx")
-cities_df = pd.read_excel("data/latlonCities.xlsx")
+roads_df = pd.read_excel("../data/roads.xlsx")
+cities_df = pd.read_excel("../data/latlonCities.xlsx")
 cities_df['ratio'] = cities_df['Population'] / cities_df['Population'].max()
-shopping_malls_df = pd.read_excel("data/shopping_mall.xlsx")
-nestro_stations_df = pd.read_excel("data/latlonNestroStations.xlsx")
-traffic_df = pd.read_excel("data/traffic.xlsx")
-other_stations_df = pd.read_excel("data/gas_station.xlsx")
+shopping_malls_df = pd.read_excel("../data/shopping_mall.xlsx")
+nestro_stations_df = pd.read_excel("../data/latlonNestroStations.xlsx")
+traffic_df = pd.read_excel("../data/traffic.xlsx")
+other_stations_df = pd.read_excel("../data/gas_station.xlsx")
 
 cities = []
 nestro_stations = []
