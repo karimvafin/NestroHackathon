@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { drawRoad } from '../../assets/utils/drawRoad';
 import { roadsData } from '../../assets/utils/roads';
 
 function Map() {

@@ -2,15 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: aliceblue; */
+    background-color: #F4F6F7;
     width: 100%;
-    padding: 32px;
     position: relative;
+    flex-direction: column;
+    gap: 32px;
+    background-image: url('../assets/img/home/фон_весь.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
 .home-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
 }

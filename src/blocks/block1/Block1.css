@@ -1,7 +1,12 @@
 .block1 {
     box-sizing: border-box;
-    width: 800px;
+    width: 600px;
     height: 600px;
+    background-image: url('../../assets/img/home/background.jpg'); /* Путь к вашей фоновой картинке */
+    background-size: cover; /* Растягивает изображение, чтобы оно покрывало весь блок */
+    background-repeat: no-repeat; /* Отключает повторение изображения */
+    background-position: center; /* Выравнивает изображение по центру блока */
+    /* Добавьте остальные стили по вашему усмотрению */
 }
 
 #map {
