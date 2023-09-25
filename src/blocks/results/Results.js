@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Card, CardType, CardWrapper } from '../../components/cards/Card';
 import DoughnutChart from '../../components/chart/DoughnutChart';
@@ -11,6 +11,9 @@ export const Results = () => {
   const params = queryString.parse(location.search);
   const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
   const mapRef = useRef(null);
+
+  // Создаем состояние для хранения данных с бэкенда
+  const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
     const loadGoogleMaps = () => {
@@ -67,26 +70,22 @@ export const Results = () => {
 
   const number = params.number;
   const id = params.id;
-  console.log(id);
-  console.log(number);
 
   useEffect(() => {
-    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${id}&name=${params.name}`)
+    // Отправляем GET-запрос на бэкенд с параметрами name и id
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${id}&name=${number}`)
       .then((response) => {
+        // Обрабатываем ответ и сохраняем данные в состояние
+        setResponseData(response.data);
         console.log(response.data); 
       })
       .catch((error) => {
         console.error('Ошибка при отправке GET-запроса:', error);
       });
-  }, []);
+  }, [id, number]);
 
   return (
     <div className="results-page">
-      {/* <div className="text-block">
-        <div className="text-block__white">
-          <div className='block2-text2'>Results</div>
-        </div>
-      </div> */}
       <div className="chart-container">
         <div className='block' ref={mapRef} style={{ width: '800px', height: '400px' }}></div>
       </div>
@@ -101,6 +100,14 @@ export const Results = () => {
             />
           ))}
         </CardWrapper>
+      {/* Отображение данных, полученных с бэкенда */}
+      {responseData && (
+        <div>
+          <p>Данные с бэкенда:</p>
+          <p>ID: {responseData.id}</p>
+          <p>Name: {responseData.name}</p>
+        </div>
+      )}
     </div>
   );
 };
