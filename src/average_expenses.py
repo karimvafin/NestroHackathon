@@ -1,6 +1,7 @@
 '''
 Модуль рассчитывает средний чек на заправке
 '''
+import pandas as pd
 def average_expenses(clients_number):
     """
         Args:
@@ -19,4 +20,8 @@ def average_expenses(clients_number):
 
     return [fuelRev, DASrev]
 
+data_for_calculation = pd.read_excel('../data/road_best_place.xlsx')['clients']
+data_for_calculation = data_for_calculation.apply(lambda x: average_expenses(x))
 
+output_data = pd.DataFrame(data={'Выручка от реализации топлива, евро': data_for_calculation.apply(lambda x: x[0]), 'Выручка от ДАС, евро': data_for_calculation.apply(lambda x: x[1])})
+output_data.to_excel("../data/revenueFuelDAS.xlsx")
