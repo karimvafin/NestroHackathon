@@ -14,6 +14,19 @@ export const Results = () => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=33`, {
+      
+    })
+      .then((response) => {
+        setResponseData(response.data);
+        console.log(response.data); 
+      })
+      .catch((error) => {
+        console.error('Ошибка при отправке GET-запроса:', error);
+      });
+  }, []);
+
+  useEffect(() => {
     const loadGoogleMaps = () => {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
