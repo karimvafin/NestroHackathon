@@ -61,7 +61,7 @@ function Map() {
               const name = roadPolyline.get("roadName");
               console.log(`ID: ${id}, Name: ${name}`);
               
-              navigate(`/results?lng=${lng}&lat=${lat}&number=${id}&id=${name}`);
+              navigate(`/results?lng=${lng}&lat=${lat}&number=${name}&id=${id}`);
             });
           } else {
             console.error('Directions request failed:', status);
