@@ -5,7 +5,7 @@ import { roadsData } from '../../assets/utils/roads';
 function Map() {
   const mapOptions = {
     center: { lat: 43.66293, lng: -79.39314 },
-    zoom: 0,
+    zoom: 7,
     disableDefaultUI: true,
   };
 
@@ -94,7 +94,7 @@ function Map() {
 
   return (
     <>
-      <div ref={ref} id="map" style={{ width: '80%', height: '100vh' }} />
+      <div ref={ref} id="map" style={{ width: '100%', height: '150vh' }} />
     </>
   );
 }
