@@ -12,12 +12,12 @@ const DoughnutChart = ({ value, color }) => {
         lineWidth={25} 
         radius={40} 
         rounded
-        startAngle={-90}
-        totalValue={10}
+        // startAngle={-90}
+        // totalValue={10}
         segmentsShift={(index) => (index === 0 ? 4 : 0)}
       />
       <div className="chart-label">
-        <span>{value}/10</span>
+        {/* <span>{value}/10</span> */}
       </div>
     </div>
   );
