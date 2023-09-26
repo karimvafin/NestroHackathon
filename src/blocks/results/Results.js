@@ -72,7 +72,7 @@ export const Results = () => {
   console.log(params.number)
 
   useEffect(() => {
-    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${params.number}`, {
+    axios.get(`https://nestro.pavel0dibr.repl.co/road?id=${params.id}`, {
 
     })
       .then((response) => {
@@ -82,7 +82,7 @@ export const Results = () => {
       .catch((error) => {
         console.error('Ошибка при отправке GET-запроса:', error);
       });
-  }, [id, number]);
+  }, [id]);
 
   return (
     <div className="results-page">
@@ -101,12 +101,22 @@ export const Results = () => {
         ))}
       </CardWrapper>
       {responseData && (
+      <div>
+        <p>Данные с бэкенда:</p>
+        <p>ID: {responseData.id}</p>
+        <p>Name: {responseData.name}</p>
         <div>
-          <p>Данные с бэкенда:</p>
-          <p>ID: {responseData.id}</p>
-          <p>Name: {responseData.name}</p>
+          <p>Detail:</p>
+          {responseData.detail.map((item, index) => (
+            <div key={index}>
+              <p>Loc: {item.loc.join(', ')}</p>
+              <p>Msg: {item.msg}</p>
+              <p>Type: {item.type}</p>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+    )}
     </div>
   );
 };

@@ -13,7 +13,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 0
+    "rating": 0.4464396901641682
   },
   {
     "id": 327,
@@ -29,7 +29,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 1
+    "rating": 0.2917386498024215
   },
   {
     "id": 328,
@@ -45,7 +45,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 2
+    "rating": 0.5462723243521079
   },
   {
     "id": 8,
@@ -61,7 +61,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 3
+    "rating": 0.7218091054679253
   },
   {
     "id": 9,
@@ -77,7 +77,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 4
+    "rating": 0.5377829855230271
   },
   {
     "id": 10,
@@ -93,7 +93,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 5
+    "rating": 0.3622785281482653
   },
   {
     "id": 11,
@@ -109,7 +109,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 6
+    "rating": 0.8602459917092214
   },
   {
     "id": 12,
@@ -125,7 +125,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 7
+    "rating": 0.7432141872855215
   },
   {
     "id": 13,
@@ -141,7 +141,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 8
+    "rating": 0.2712240649926231
   },
   {
     "id": 14,
@@ -157,7 +157,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 9
+    "rating": 0.7576623582797474
   },
   {
     "id": 15,
@@ -173,7 +173,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 10
+    "rating": 0.262167564982262
   },
   {
     "id": 44,
@@ -189,7 +189,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 11
+    "rating": 0.209227988258375
   },
   {
     "id": 16,
@@ -205,7 +205,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 12
+    "rating": 0.4935851589141482
   },
   {
     "id": 17,
@@ -221,7 +221,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 13
+    "rating": 0.3129488589501309
   },
   {
     "id": 18,
@@ -237,7 +237,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 14
+    "rating": 0.9110465780068385
   },
   {
     "id": 41,
@@ -253,7 +253,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 15
+    "rating": 0.7588370083863903
   },
   {
     "id": 64,
@@ -269,7 +269,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 16
+    "rating": 0.5107992569006541
   },
   {
     "id": 67,
@@ -285,7 +285,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 17
+    "rating": 0.5356046482567139
   },
   {
     "id": 90,
@@ -301,7 +301,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 18
+    "rating": 0.4690058756929517
   },
   {
     "id": 91,
@@ -317,7 +317,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 19
+    "rating": 0.240349514461202
   },
   {
     "id": 92,
@@ -333,7 +333,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 20
+    "rating": 0.8536377098506704
   },
   {
     "id": 93,
@@ -349,7 +349,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 21
+    "rating": 0.3127424059290306
   },
   {
     "id": 98,
@@ -365,7 +365,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 22
+    "rating": 0.5648805102064118
   },
   {
     "id": 99,
@@ -381,7 +381,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 23
+    "rating": 0.2527194929688661
   },
   {
     "id": 100,
@@ -397,7 +397,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 24
+    "rating": 0.4844472118655297
   },
   {
     "id": 104,
@@ -413,7 +413,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 25
+    "rating": 0.659209645226089
   },
   {
     "id": 133,
@@ -429,7 +429,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 26
+    "rating": 0.4741318828312094
   },
   {
     "id": 136,
@@ -445,7 +445,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 27
+    "rating": 0.20246942116925
   },
   {
     "id": 137,
@@ -461,7 +461,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 28
+    "rating": 0.3906225831565681
   },
   {
     "id": 373,
@@ -477,7 +477,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 29
+    "rating": 0.274557597622717
   },
   {
     "id": 377,
@@ -493,7 +493,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 30
+    "rating": 0.6975716981354648
   },
   {
     "id": 143,
@@ -509,7 +509,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 31
+    "rating": 0.7633561067073741
   },
   {
     "id": 144,
@@ -525,7 +525,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 32
+    "rating": 0.5135763262382347
   },
   {
     "id": 153,
@@ -541,7 +541,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 33
+    "rating": 0.5612664919220489
   },
   {
     "id": 154,
@@ -557,7 +557,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 34
+    "rating": 0.4374401902312001
   },
   {
     "id": 156,
@@ -573,7 +573,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 35
+    "rating": 0.5099256006156033
   },
   {
     "id": 385,
@@ -589,7 +589,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 36
+    "rating": 0.5237067524844701
   },
   {
     "id": 386,
@@ -605,7 +605,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 37
+    "rating": 0.5234722836501753
   },
   {
     "id": 387,
@@ -621,7 +621,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 38
+    "rating": 0.6525335463330835
   },
   {
     "id": 388,
@@ -637,7 +637,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 39
+    "rating": 0.6741444265029568
   },
   {
     "id": 389,
@@ -653,7 +653,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 40
+    "rating": 0.7280559248326457
   },
   {
     "id": 390,
@@ -669,7 +669,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 41
+    "rating": 0.2332871059130935
   },
   {
     "id": 391,
@@ -685,7 +685,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 42
+    "rating": 0.6358563004658118
   },
   {
     "id": 405,
@@ -701,7 +701,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 43
+    "rating": 0.8011586159486429
   },
   {
     "id": 416,
@@ -717,7 +717,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 44
+    "rating": 0.4875572217930589
   },
   {
     "id": 418,
@@ -733,7 +733,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 45
+    "rating": 0.2328885765816985
   },
   {
     "id": 419,
@@ -749,7 +749,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 46
+    "rating": 0.4683304926037868
   },
   {
     "id": 158,
@@ -765,7 +765,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 47
+    "rating": 0.8107141592914403
   },
   {
     "id": 168,
@@ -781,7 +781,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 48
+    "rating": 0.357852604423981
   },
   {
     "id": 180,
@@ -797,7 +797,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 49
+    "rating": 0.7044103220682211
   },
   {
     "id": 181,
@@ -813,7 +813,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 50
+    "rating": 0.2395275411332083
   },
   {
     "id": 183,
@@ -829,7 +829,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 51
+    "rating": 0.3820571910682981
   },
   {
     "id": 206,
@@ -845,7 +845,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 52
+    "rating": 0.271462342714356
   },
   {
     "id": 184,
@@ -861,7 +861,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 53
+    "rating": 0.5770839360039792
   },
   {
     "id": 207,
@@ -877,7 +877,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 54
+    "rating": 0.4950888728234775
   },
   {
     "id": 187,
@@ -893,7 +893,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 55
+    "rating": 0.7850674498627905
   },
   {
     "id": 438,
@@ -909,7 +909,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 56
+    "rating": 0.6863751722962022
   },
   {
     "id": 440,
@@ -925,7 +925,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 57
+    "rating": 0.2300231736007334
   },
   {
     "id": 212,
@@ -941,7 +941,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 58
+    "rating": 0.8661869472248953
   },
   {
     "id": 213,
@@ -957,7 +957,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 59
+    "rating": 0.3330800533954723
   },
   {
     "id": 215,
@@ -973,7 +973,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 60
+    "rating": 0.271319064802126
   },
   {
     "id": 218,
@@ -989,7 +989,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 61
+    "rating": 0.3566277904345972
   },
   {
     "id": 219,
@@ -1005,7 +1005,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 62
+    "rating": 0.5460662399764885
   },
   {
     "id": 450,
@@ -1021,7 +1021,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 63
+    "rating": 0.9210238163165421
   },
   {
     "id": 251,
@@ -1037,7 +1037,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 64
+    "rating": 0.5508891339125165
   },
   {
     "id": 252,
@@ -1053,7 +1053,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 65
+    "rating": 0.3600395382801846
   },
   {
     "id": 253,
@@ -1069,7 +1069,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 66
+    "rating": 0.9149138703359435
   },
   {
     "id": 254,
@@ -1085,7 +1085,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 67
+    "rating": 0.6011066896962807
   },
   {
     "id": 275,
@@ -1101,7 +1101,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 68
+    "rating": 0.6101979749196823
   },
   {
     "id": 278,
@@ -1117,7 +1117,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 69
+    "rating": 0.4646897814724681
   },
   {
     "id": 279,
@@ -1133,7 +1133,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 70
+    "rating": 0.4116541740081627
   },
   {
     "id": 280,
@@ -1149,7 +1149,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 71
+    "rating": 0.6797782107597498
   },
   {
     "id": 284,
@@ -1165,7 +1165,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 72
+    "rating": 0.6351426327912654
   },
   {
     "id": 286,
@@ -1181,7 +1181,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 73
+    "rating": 0.6539432902840732
   },
   {
     "id": 289,
@@ -1197,7 +1197,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 74
+    "rating": 0.9346631153336262
   },
   {
     "id": 290,
@@ -1213,7 +1213,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 75
+    "rating": 0.7538282780538352
   },
   {
     "id": 292,
@@ -1229,7 +1229,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 76
+    "rating": 0.3667776639689659
   },
   {
     "id": 293,
@@ -1245,7 +1245,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 77
+    "rating": 0.6192710900693261
   },
   {
     "id": 294,
@@ -1261,7 +1261,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 78
+    "rating": 0.2482780254035506
   },
   {
     "id": 295,
@@ -1277,7 +1277,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 79
+    "rating": 0.4160650506079631
   },
   {
     "id": 460,
@@ -1293,7 +1293,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 80
+    "rating": 0.2087190184742456
   },
   {
     "id": 299,
@@ -1309,7 +1309,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 81
+    "rating": 0.6575372651002118
   },
   {
     "id": 302,
@@ -1325,7 +1325,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 82
+    "rating": 0.7840590999050532
   },
   {
     "id": 303,
@@ -1341,7 +1341,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 83
+    "rating": 0.4340638926693293
   },
   {
     "id": 304,
@@ -1357,7 +1357,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 84
+    "rating": 0.2765950214840951
   },
   {
     "id": 305,
@@ -1373,7 +1373,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 85
+    "rating": 0.2366715642064987
   },
   {
     "id": 306,
@@ -1389,7 +1389,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 86
+    "rating": 0.4942795771867816
   },
   {
     "id": 311,
@@ -1405,7 +1405,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 87
+    "rating": 0.7122430000045384
   },
   {
     "id": 312,
@@ -1421,7 +1421,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 88
+    "rating": 0.6770203778629723
   },
   {
     "id": 482,
@@ -1437,7 +1437,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 89
+    "rating": 0.5207945240370323
   },
   {
     "id": 487,
@@ -1453,7 +1453,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 90
+    "rating": 0.8797323109326254
   },
   {
     "id": 494,
@@ -1469,7 +1469,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 91
+    "rating": 0.5927446298932584
   },
   {
     "id": 513,
@@ -1485,7 +1485,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 92
+    "rating": 0.2596217430309817
   },
   {
     "id": 519,
@@ -1501,7 +1501,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 93
+    "rating": 0.5555883477115031
   },
   {
     "id": 524,
@@ -1517,9 +1517,8 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 94
+    "rating": 0.4297729007572954
   },
-  // роор
   {
     "id": 532,
     "name": "Karanovac - Mitrović",
@@ -1534,7 +1533,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 95
+    "rating": 0.5647015456402986
   },
   {
     "id": 533,
@@ -1550,7 +1549,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 96
+    "rating": 0.5914492877054228
   },
   {
     "id": 534,
@@ -1566,7 +1565,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 97
+    "rating": 1
   },
   {
     "id": 537,
@@ -1582,7 +1581,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 98
+    "rating": 0.6308719204744038
   },
   {
     "id": 574,
@@ -1598,7 +1597,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 99
+    "rating": 0.9060626829157591
   },
   {
     "id": 576,
@@ -1614,7 +1613,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 100
+    "rating": 0.3661045404867111
   },
   {
     "id": 577,
@@ -1630,7 +1629,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 101
+    "rating": 0.369945082171278
   },
   {
     "id": 584,
@@ -1646,7 +1645,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 102
+    "rating": 0.8888778460148956
   },
   {
     "id": 585,
@@ -1662,7 +1661,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 103
+    "rating": 0.3900317840431523
   },
   {
     "id": 589,
@@ -1678,7 +1677,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 104
+    "rating": 0.7508101704720687
   },
   {
     "id": 591,
@@ -1694,7 +1693,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 105
+    "rating": 0.4090944454880982
   },
   {
     "id": 592,
@@ -1710,7 +1709,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 106
+    "rating": 0.579701040869787
   },
   {
     "id": 594,
@@ -1726,7 +1725,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 107
+    "rating": 0.2442384759106353
   },
   {
     "id": 598,
@@ -1742,7 +1741,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 108
+    "rating": 0.3767284185805508
   },
   {
     "id": 599,
@@ -1758,7 +1757,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 109
+    "rating": 0.9229361387197722
   },
   {
     "id": 614,
@@ -1774,7 +1773,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 110
+    "rating": 0.5831337365683676
   },
   {
     "id": 655,
@@ -1790,7 +1789,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 111
+    "rating": 0.4298116211663278
   },
   {
     "id": 657,
@@ -1806,7 +1805,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 112
+    "rating": 0.3669956121148933
   },
   {
     "id": 661,
@@ -1822,7 +1821,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 113
+    "rating": 0.4347254425142151
   },
   {
     "id": 663,
@@ -1838,7 +1837,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 114
+    "rating": 0.5793761722266183
   },
   {
     "id": 674,
@@ -1854,7 +1853,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 115
+    "rating": 0.7968784142409404
   },
   {
     "id": 679,
@@ -1870,7 +1869,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 116
+    "rating": 0.9258635937391263
   },
   {
     "id": 680,
@@ -1886,7 +1885,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 117
+    "rating": 0.2442692065584854
   },
   {
     "id": 682,
@@ -1902,7 +1901,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 118
+    "rating": 0.8733878969715778
   },
   {
     "id": 684,
@@ -1918,7 +1917,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 119
+    "rating": 0.6307756848294824
   },
   {
     "id": 690,
@@ -1934,7 +1933,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 120
+    "rating": 0.4221190052892882
   },
   {
     "id": 691,
@@ -1950,7 +1949,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 121
+    "rating": 0.8365712421481589
   },
   {
     "id": 693,
@@ -1966,7 +1965,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 122
+    "rating": 0.4229652862851866
   },
   {
     "id": 694,
@@ -1982,7 +1981,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 123
+    "rating": 0.4214912937074046
   },
   {
     "id": 699,
@@ -1998,7 +1997,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 124
+    "rating": 0.3079142972396174
   },
   {
     "id": 702,
@@ -2014,7 +2013,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 125
+    "rating": 0.8384313443063859
   },
   {
     "id": 705,
@@ -2030,7 +2029,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 126
+    "rating": 0.8460207898460951
   },
   {
     "id": 706,
@@ -2046,7 +2045,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 127
+    "rating": 0.8873839717364697
   },
   {
     "id": 718,
@@ -2062,7 +2061,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 128
+    "rating": 0.2973337086533108
   },
   {
     "id": 719,
@@ -2078,7 +2077,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 129
+    "rating": 0.7835299457831298
   },
   {
     "id": 720,
@@ -2094,7 +2093,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 130
+    "rating": 0.3717114664943926
   },
   {
     "id": 722,
@@ -2110,7 +2109,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 131
+    "rating": 0.2481129058983345
   },
   {
     "id": 736,
@@ -2126,7 +2125,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 132
+    "rating": 0.8775136504527025
   },
   {
     "id": 737,
@@ -2142,7 +2141,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 133
+    "rating": 0.3205559201904555
   },
   {
     "id": 740,
@@ -2158,7 +2157,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 134
+    "rating": 0.9496684148775276
   },
   {
     "id": 741,
@@ -2174,7 +2173,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 135
+    "rating": 0.7187205548142716
   },
   {
     "id": 744,
@@ -2190,7 +2189,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 136
+    "rating": 0.7944010848303069
   },
   {
     "id": 745,
@@ -2206,7 +2205,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 137
+    "rating": 0.3627356687775003
   },
   {
     "id": 754,
@@ -2222,7 +2221,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 138
+    "rating": 0.5109749673847016
   },
   {
     "id": 755,
@@ -2238,7 +2237,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 139
+    "rating": 0.4397506742453546
   },
   {
     "id": 756,
@@ -2254,7 +2253,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 140
+    "rating": 0.6985198625448553
   },
   {
     "id": 764,
@@ -2270,7 +2269,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 141
+    "rating": 0.6410683797176568
   },
   {
     "id": 765,
@@ -2286,7 +2285,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 142
+    "rating": 0.3181507283653434
   },
   {
     "id": 767,
@@ -2302,7 +2301,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 143
+    "rating": 0.3321058079973299
   },
   {
     "id": 768,
@@ -2318,7 +2317,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 144
+    "rating": 0.9314818370738113
   },
   {
     "id": 781,
@@ -2334,7 +2333,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 145
+    "rating": 0.8669149735733085
   },
   {
     "id": 782,
@@ -2350,7 +2349,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 146
+    "rating": 0.8870750378841172
   },
   {
     "id": 783,
@@ -2366,7 +2365,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 147
+    "rating": 0.2869523618067082
   },
   {
     "id": 785,
@@ -2382,7 +2381,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 148
+    "rating": 0.3600761696002382
   },
   {
     "id": 788,
@@ -2398,7 +2397,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 149
+    "rating": 0.3506454895211653
   },
   {
     "id": 796,
@@ -2414,7 +2413,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 150
+    "rating": 0.8463198254433001
   },
   {
     "id": 800,
@@ -2430,7 +2429,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 151
+    "rating": 0.2067031408909824
   },
   {
     "id": 804,
@@ -2446,7 +2445,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 152
+    "rating": 0.8233349669158846
   },
   {
     "id": 805,
@@ -2462,7 +2461,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 153
+    "rating": 0.6259745880618233
   },
   {
     "id": 807,
@@ -2478,7 +2477,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 154
+    "rating": 0.8579739464157485
   },
   {
     "id": 809,
@@ -2494,7 +2493,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 155
+    "rating": 0.2944961415897203
   },
   {
     "id": 811,
@@ -2510,7 +2509,7 @@ export const roadsData = [
       }
     ],
     "travelMode": "DRIVING",
-    "rating": 156
+    "rating": 0.4984129502393598
   }
   ];
   

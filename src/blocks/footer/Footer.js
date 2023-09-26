@@ -1,39 +1,38 @@
-import './Footer.css'
+import React, { useState } from 'react';
+import './Footer.css';
+import { roadsData } from '../../assets/utils/roads';
 
 export const Footer = () => {
+    const [showAllRoads, setShowAllRoads] = useState(false);
 
-    return(
+    const toggleRoads = () => {
+        setShowAllRoads(!showAllRoads);
+    };
+
+    const displayedRoads = showAllRoads ? roadsData : roadsData.slice(0, 20);
+
+    return (
         <div className='footer'>
             <div className='list-wrapper'>
                 <div className='list'>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                </div>
-                <div className='list'>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
-                    <div>road</div>
+                    <div className='text'>Cool gyus team:</div>
+                    <div className='text'>Dibrovenko Pavel</div>
+                    <div className='text'>Vafin Karim</div>
+                    <div className='text'>Plahotnyuk Arseniy</div>
+                    <div className='text'>Bekmina Julia</div>
                 </div>
             </div>
             <div className="line"></div>
-            <div className='list-wrapper list-style'>
-            <div className='list'>
-                <div>Name</div>
-                <div>Name</div>
-                <div>Name</div>
-                <div>Name</div>
+            <div className="toggle-button" onClick={toggleRoads}>
+                {showAllRoads ? 'Скрыть дороги' : 'Показать все дороги'}
             </div>
-            <div className='list'>
-                <div>Contacts</div>
-            </div>
+            <div className={`list-wrapper${showAllRoads ? ' expanded' : ''}`}>
+                {displayedRoads.map((road) => (
+                    <div className='list' key={road.id}>
+                        <div className='road-name'>{road.name}</div>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-}
+    );
+};

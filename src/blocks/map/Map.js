@@ -4,8 +4,8 @@ import { roadsData } from '../../assets/utils/roads';
 
 function Map() {
   const mapOptions = {
-    center: { lat: 43.66293, lng: -79.39314 },
-    zoom: 7,
+    center: { lat: 43.66293, lng: -79.39314 }, 
+    zoom: 100,
     disableDefaultUI: true,
   };
 
@@ -36,6 +36,7 @@ function Map() {
                 strokeOpacity: 1.0,
                 strokeWeight: 10,
               },
+              suppressMarkers: true,
             });
 
             directionsRenderer.setDirections(response);

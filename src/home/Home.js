@@ -1,6 +1,6 @@
 import "./Home.css"
 import { Block1 }  from '../blocks/block1/Block1'
-import { Block2 } from "../blocks/ block2/Block2"
+import { Block2 } from "../blocks/block2/Block2"
 import { Footer } from "../blocks/footer/Footer"
 
 export const Home = () => {

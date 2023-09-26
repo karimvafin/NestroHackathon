@@ -13,8 +13,8 @@ export const Block2 = () => {
     return(
         <div className='block2'>
             <div className='block2-wrapper'>
-                <div className='block2-text2'>Text</div>
-                <div className='block2-text2'>Text</div>
+                <div className='block2-text2'>Road Analyzer</div>
+                <div className='block2-text2'>Оценка рентабельности заправочных пунктов</div>
                 <button onClick={scrollToDown}>
                     <div className='button-text'>Get started</div>
                 </button>
