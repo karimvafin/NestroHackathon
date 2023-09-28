@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { roadsData } from '../../assets/utils/roads';
+import axios from 'axios';
 
 function Map() {
   const mapOptions = {
-    center: { lat: 43.66293, lng: -79.39314 }, 
+    center: { lat: 43.66293, lng: -79.39314 },
     zoom: 100,
     disableDefaultUI: true,
   };
@@ -13,8 +13,28 @@ function Map() {
   const ref = useRef();
   const navigate = useNavigate();
 
-  const createRoads = (map) => {
-    roadsData.forEach(({ id, name, coordinates }) => {
+  const src = "https://nestro.pavel0dibr.repl.co/main";
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(src)
+      .then(response => {
+        console.log(response.data);
+        setData(response.data);
+
+        if (map) {
+          createRoads(map, response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Ошибка при получении данных:', error);
+      });
+  }, [map]);
+
+  const createRoads = (map, data) => {
+    data.forEach(({ id, name, coordinates }) => {
       if (coordinates.length >= 2) {
         const start = new window.google.maps.LatLng(coordinates[0].lat, coordinates[0].lng);
         const end = new window.google.maps.LatLng(coordinates[1].lat, coordinates[1].lng);
@@ -32,7 +52,7 @@ function Map() {
             const directionsRenderer = new window.google.maps.DirectionsRenderer({
               map: map,
               polylineOptions: {
-                strokeColor: '#FF0000', 
+                strokeColor: '#FF0000',
                 strokeOpacity: 1.0,
                 strokeWeight: 10,
               },
@@ -61,7 +81,7 @@ function Map() {
               const id = roadPolyline.get("roadId");
               const name = roadPolyline.get("roadName");
               console.log(`ID: ${id}, Name: ${name}`);
-              
+
               navigate(`/results?lng=${lng}&lat=${lat}&number=${name}&id=${id}`);
             });
           } else {
@@ -89,9 +109,9 @@ function Map() {
 
   useEffect(() => {
     if (map) {
-      createRoads(map);
+      createRoads(map, data);
     }
-  }, [map]);
+  }, [map, data]);
 
   return (
     <>
