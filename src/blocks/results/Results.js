@@ -117,18 +117,18 @@ export const Results = () => {
       label: 'Other Stations',
       children: data ? data.other_stations : "loading",
     },
-    {
-      key: '4',
-      label: 'Road coordinates',
-      children: data ? data.road_cords : "loading",
-    },
+    // {
+    //   key: '4',
+    //   label: 'Road coordinates',
+    //   children: data ? data.road_cords : "loading",
+    // },
   ];
 
   return (
     <div className="results-page">
       <p className='results-title'>{data.name}</p>
       <div className="chart-container">
-        <div className='block' ref={mapRef} style={{ width: '800px', height: '400px' }}></div>
+        <div className='block' ref={mapRef} style={{ width: '84%', height: '600px' }}></div>
       </div>
       {/* <div className='results-text'>Результаты</div>
       <div className='results-text'>name:Lončari - Pelagićevo</div> */}
