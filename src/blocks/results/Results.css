@@ -2,6 +2,10 @@
 .results-page {
     text-align: center;
     padding: 20px;
+    background-image: url('../../assets/img/home/фон_весь.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
   }
   
   .results-page h1 {
@@ -44,14 +48,27 @@
   }
 
   .results-text {
-    font-size: 48px;
+    font-size: 24px;
     color: #1B314B;
-    font-weight: bold;
+    font-weight: 400px;
 }
   
-.left-wrapper {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    text-align: left;
+.results-title {
+  font-size: 24px;
+  color: #1B314B;
+  font-weight: 600px;
 }
+
+.response-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    background-color: #f0f0f0; 
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    margin-top: 32px;
+}
+
