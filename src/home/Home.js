@@ -21,7 +21,7 @@ export const Home = () => {
 
     return (
         <div className="home">
-            <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+            {/* <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} /> */}
             {isMenuOpen && <SliderbarMenu menuItems={menuItems} />}
             <Block2 />
             <Block1 />
