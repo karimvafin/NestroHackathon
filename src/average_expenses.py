@@ -3,43 +3,62 @@
 '''
 import pandas as pd
 import numpy as np
-def average_expenses(clients_number):
-    """
-        Args:
-            clients (int): количество клиентов на заправке за период
-        Returns:
-            revenue: list[выручка от топлива, выручка от ДАС] за пероид
-    """
-    fuelPrice = [1.432, 1.483]  # цена на [95 бензин, дизель] в 2023 году за литр
-    tankCapacity = [50, 500]  # обьем бака у легкового авто и фуры
-
-    transportType = [0.7, 0.3]
-
-    fuelRev = clients_number * (
-                transportType[0] * fuelPrice[0] * tankCapacity[0] + transportType[1] * fuelPrice[1] * tankCapacity[1])
-    DASrev = fuelRev * 0.1
-
-    return [fuelRev, DASrev]
-
-# data_for_calculation = pd.read_excel('../data/road_best_place.xlsx')['clients']
-# data_for_calculation = data_for_calculation.apply(lambda x: average_expenses(x))
-#
-# output_data = pd.DataFrame(data={'Выручка от реализации топлива, евро': data_for_calculation.apply(lambda x: x[0]), 'Выручка от ДАС, евро': data_for_calculation.apply(lambda x: x[1])})
-# output_data.to_excel("../data/revenueFuelDAS.xlsx")
 
 
-def calculate_total_revenue(data_file_path="../data/revenue/cars.xlsx"):
+def calculate_total_revenue(clients_data_file_path="../data/revenue/input/NameClients.xlsx",
+                            data_traffic_file_path="../data/revenue/input/traffic.xlsx",
+                            data_fuel_file_path="../data/revenue/input/fuel.xlsx",
+                            data_das_file_path="../data/revenue/input/das.xlsx"):
     """
         Функция рассчитывает прибыль заправок за определенный период
 
         Args:
-            data_file_path (str): путь к excel файлу с необходимыми данными
+            clients_data_file_path (str): путь к excel файлу с данными о количестве клиентов на заправке.
+              'Name' - название дороги,
+              'clients' - кол-во клиентов на заправке.
+
+            data_traffic_file_path (str):
+               '< 5,5 m', '5,5 - 12 m', '12 - 16,5 m', '> 16,5 m' - трафик на дороге по соответствующим длинам кузова.
+
+            data_fuel_file_path (str):
+                '95, euro', 'Deisel, euro' - стоимость 95 бензина и дизеля в евро для каждой заправки.
+
 
         Returns:
             запись в файл данные с прибылью для всех предоставленных заправок
     """
-    data = pd.read_excel(data_file_path)
-    print(data)
+    # чтение данных
+    data = pd.read_excel(clients_data_file_path)
+    data_traffic = pd.read_excel(data_traffic_file_path)
+    data_fuel = pd.read_excel(data_fuel_file_path)
+    data_das = pd.read_excel(data_das_file_path)
+
+    # расчет типов машин клиентов на завправках
+    data['< 5,5 m'] = np.int32(data_traffic['< 5,5 m'] * data['clients'])
+    data['5,5 - 12 m'] = np.int32(data_traffic['5,5 - 12 m'] * data['clients'])
+    data['12 - 16,5 m'] = np.int32(data_traffic['12 - 16,5 m'] * data['clients'])
+    data['> 16,5 m'] = np.int32(data_traffic['> 16,5 m'] * data['clients'])
+
+    tankV55 = 45
+    tankV5_12 = 80
+    tankV12_16 = 300
+    tankV16 = 1200
+
+    # расчет прибыли
+    # от реализации топлива
+    fuel_revenue = ((data['< 5,5 m'] * tankV55 + data['5,5 - 12 m'] * tankV5_12) * data_fuel['95, euro'] +
+                    (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Deisel, euro'])
+
+    # от ДАС
+    das_revenue = data_das['средний чек на ДАС в районе'] * data['clients']
+
+    total_revenue = pd.DataFrame(data={'Название': data['Name'],
+                                       'Доход от реализации топлива, евро': fuel_revenue,
+                                       'Доход от ДАС, евро': das_revenue,
+                                       'Итог, евро': fuel_revenue*das_revenue})
+
+    total_revenue.to_excel("../data/revenue/output/total_revenue.xlsx")
+
 
 
 calculate_total_revenue()
