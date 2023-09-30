@@ -8,3 +8,11 @@
     margin-bottom: 32px;
 }
 
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 95%;
+}
+

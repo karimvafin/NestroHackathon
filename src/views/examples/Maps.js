@@ -118,10 +118,11 @@ const Maps = () => {
   }, [map, data]);
 
   const getGradientColor = (rating) => {
-    const value = Math.round(rating * 255);
+    const value1 = Math.round(rating * 255);
+    const value2 = Math.round((1 - rating) * 255);
 
     const r = 1;
-    const g = value;
+    const g = value1;
     const b = 254;
 
     const redHex = r.toString(16).padStart(2, '0');

@@ -184,7 +184,7 @@ const Index = (props) => {
                           <td>{item.rating}</td>
                         </tr>
                       ))
-                    : replitData.slice(0, 5).map((item, index) => (
+                    : replitData.slice(0, 9).map((item, index) => (
                         <tr key={index}>
                           <th scope="row">{item.id}</th>
                           <td>{item.name}</td>
@@ -200,7 +200,7 @@ const Index = (props) => {
               <CardHeader className="border-0">
                 <Row className="align-items-center">
                   <div className="col">
-                    <h3 className="mb-0">Social traffic</h3>
+                    <h3 className="mb-0">Fuel price</h3>
                   </div>
                   <div className="col text-right">
                     <Button
@@ -217,87 +217,67 @@ const Index = (props) => {
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
-                    <th scope="col">Referral</th>
-                    <th scope="col">Visitors</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Eurosuper 95</th>
+                    <th scope="col">Eurodizel</th>
+                    <th scope="col">Eurosuper 100</th>
                     <th scope="col" />
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">Facebook</th>
-                    <td>1,480</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">60%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="60"
-                            barClassName="bg-gradient-danger"
-                          />
-                        </div>
-                      </div>
-                    </td>
+                    <th scope="row">AdriaOil</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>-</td>
                   </tr>
                   <tr>
-                    <th scope="row">Facebook</th>
-                    <td>5,480</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">70%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="70"
-                            barClassName="bg-gradient-success"
-                          />
-                        </div>
-                      </div>
-                    </td>
+                    <th scope="row">Attendo centar (Dugo Selo)</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>-</td>
                   </tr>
                   <tr>
-                    <th scope="row">Google</th>
-                    <td>4,807</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">80%</span>
-                        <div>
-                          <Progress max="100" value="80" />
-                        </div>
-                      </div>
-                    </td>
+                    <th scope="row">Crodux Derivati (Petrol)</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>2,05 €</td>
                   </tr>
                   <tr>
-                    <th scope="row">Instagram</th>
-                    <td>3,678</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">75%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="75"
-                            barClassName="bg-gradient-info"
-                          />
-                        </div>
-                      </div>
-                    </td>
+                    <th scope="row">Ina</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>2,04 €</td>
                   </tr>
                   <tr>
-                    <th scope="row">twitter</th>
-                    <td>2,645</td>
-                    <td>
-                      <div className="d-flex align-items-center">
-                        <span className="mr-2">30%</span>
-                        <div>
-                          <Progress
-                            max="100"
-                            value="30"
-                            barClassName="bg-gradient-warning"
-                          />
-                        </div>
-                      </div>
-                    </td>
+                    <th scope="row">Lukoil</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mitea (Samobor)</th>
+                    <td>1,61 €</td>
+                    <td>1,61 €</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Petrol</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>2,05 €</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Shell</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>2,039 €</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tifon</th>
+                    <td>1,62 €</td>
+                    <td>1,62 €</td>
+                    <td>2,11 €</td>
                   </tr>
                 </tbody>
               </Table>
