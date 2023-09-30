@@ -39,6 +39,7 @@ def calculate_total_revenue(clients_data_file_path="../data/revenue/input/NameCl
     data['12 - 16,5 m'] = np.int32(data_traffic['12 - 16,5 m'] * data['clients'])
     data['> 16,5 m'] = np.int32(data_traffic['> 16,5 m'] * data['clients'])
 
+    # средний обьем бака авто с разной длиной кузова
     tankV55 = 45
     tankV5_12 = 80
     tankV12_16 = 300
