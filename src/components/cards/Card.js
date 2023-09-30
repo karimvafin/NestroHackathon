@@ -12,7 +12,7 @@ export function CardWrapper(props) {
   return <div className={classes}>{props.children}</div>;
 }
 
-export const Card = (props) => {
+export const Cards = (props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
