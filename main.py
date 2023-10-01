@@ -1,7 +1,9 @@
 import pandas as pd
 
 from src.ClientPropagator import ClientPropagator
+
 import src.data as data
+from src.total_revenue import calculate_total_revenue
 
 # CL = ClientPropagator(data.roads_df['potential'])
 CL = ClientPropagator()
