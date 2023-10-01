@@ -76,7 +76,7 @@ async def maiin():
 @app.get("/road")
 async def road_info(id):
     # Указываем путь к файлу Excel
-    file_path = '../../../PycharmProjects/Uniswapbot/xacaton/road_best_place.xlsx'
+    file_path = 'data/clients/road_best_place.xlsx'
     file_path2 = 'data/revenue/total_revenue.xlsx'
 
     # Читаем файл Excel и сохраняем данные в переменную df           uv(DataFrame)
@@ -102,7 +102,6 @@ async def road_info(id):
     das_revenue_column = df2.iloc[0:, 3]
 
     for i in range(len(number_column)):
-        print(str(id), str(number_column.iloc[i]))
         if str(id) == str(number_column.iloc[i]):
 
             name = name_column.iloc[i]
