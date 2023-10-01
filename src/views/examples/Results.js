@@ -1,22 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import { Tabs } from 'antd';
 import axios from 'axios';
 import queryString from 'query-string';
 import { CardType, Cards, CardWrapper } from 'components/cards/Card';
 import { Card, Container, Row } from 'reactstrap';
-import './Result.css'
+import './Result.css';
 
 // reactstrap components
 import {
-  // Card,
-  CardHeader,
-  CardBody,
-  // Container,
-  // Row,
   Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 // core components
 import Header from "components/Headers/Header.js";
@@ -26,12 +19,10 @@ const Results = () => {
   const params = queryString.parse(location.search);
   const initialLatLng = { lat: parseFloat(params.lat), lng: parseFloat(params.lng) };
   const mapRef = useRef(null);
-  const [responseData, setResponseData] = useState(null);
-  const [roadCoordinates, setRoadCoordinates] = useState([]);
+  const [bestPlaceLatLng, setBestPlaceLatLng] = useState(null);
   const onChange = (key) => {
     console.log(key);
   };
-  const [bestPlaceLatLng, setBestPlaceLatLng] = useState(null);
 
   useEffect(() => {
     const loadGoogleMaps = () => {
@@ -44,7 +35,7 @@ const Results = () => {
         document.head.appendChild(script);
       });
     };
-
+  
     loadGoogleMaps()
       .then(() => {
         const mapOptions = {
@@ -52,42 +43,39 @@ const Results = () => {
           zoom: 15,
           disableDefaultUI: true,
         };
-
+  
         const map = new window.google.maps.Map(mapRef.current, mapOptions);
-
+  
         const marker = new window.google.maps.Marker({
           position: initialLatLng,
           map: map,
         });
-
+  
         marker.addListener('click', () => {
+          // Обработчик клика на маркере начальной точки
         });
-
-        if (params.best_place) {
-          const [lat, lng] = params.best_place.split(',').map(parseFloat);
-          const bestPlaceLatLng = { lat, lng };
-
+  
+        if (bestPlaceLatLng) {
           const bestPlaceMarker = new window.google.maps.Marker({
             position: bestPlaceLatLng,
             map: map,
           });
-
+  
           bestPlaceMarker.addListener('click', () => {
-            
+            // Обработчик клика на маркере "Best Place"
+            console.log("Координаты точки Best Place:");
+            console.log("Широта:", bestPlaceLatLng.lat);
+            console.log("Долгота:", bestPlaceLatLng.lng);
           });
-
-          setBestPlaceLatLng(bestPlaceLatLng);
         }
       })
       .catch((error) => {
         console.error('Ошибка при загрузке Google Maps:', error);
       });
-  }, [params]);
+  }, [bestPlaceLatLng]);
 
   const number = params.number;
   const id = params.id;
-  console.log(params.id)
-  // console.log(params.number)
 
   const src = `https://nestro2.pavel0dibr.repl.co/road?id=${params.id}`;
 
@@ -100,6 +88,11 @@ const Results = () => {
         console.log(response.data);
         setData(response.data);
 
+        if (response.data.best_place) {
+          const [lat, lng] = response.data.best_place.split(',').map(parseFloat);
+          const bestPlaceLatLng = { lat, lng };
+          setBestPlaceLatLng(bestPlaceLatLng);
+        }
       })
       .catch(error => {
         console.error('Ошибка при получении данных:', error);
@@ -127,7 +120,7 @@ const Results = () => {
       title: "Das revenue:",
       text: data ? data.das_revenue : "loading"
     }
-  ]
+  ];
 
   const items = [
     {
@@ -148,37 +141,37 @@ const Results = () => {
   ];
 
   return (
-      <>
+    <>
       <Header />
       {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
           <div className="col">
             <Card className="shadow border-0">
-            <div className="col">
-            <Card className="shadow border-0">
-              <div className="results-page">
-                <p className='results-title'>{data.name}</p>
-                <div className="chart-container">
-                  <div className='block' ref={mapRef} style={{ width: '100%', height: '600px' }}></div>
-                </div>
-                <CardWrapper>
-                  {dataCards.map((d, index) => (
-                    <Cards
-                      title={d.title}
-                      text={d.text}
-                      cardType={CardType.FIRST}
-                    />
-                  ))}
-                </CardWrapper>
-                <div className='results-text1'>
-                  <div className="response-data">
-                    <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+              <div className="col">
+                <Card className="shadow border-0">
+                  <div className="results-page">
+                    <p className='results-title'>{data.name}</p>
+                    <div className="chart-container">
+                      <div className='block' ref={mapRef} style={{ width: '100%', height: '600px' }}></div>
+                    </div>
+                    <CardWrapper>
+                      {dataCards.map((d, index) => (
+                        <Cards
+                          title={d.title}
+                          text={d.text}
+                          cardType={CardType.FIRST}
+                        />
+                      ))}
+                    </CardWrapper>
+                    <div className='results-text1'>
+                      <div className="response-data">
+                        <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Card>
               </div>
-            </Card>
-          </div>
             </Card>
           </div>
         </Row>

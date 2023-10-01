@@ -14,8 +14,7 @@
     "argon-react",
     "dashboard",
     "dashboard-react",
-    "argon-dashboard",
-    "argon-dashboard-react"
+    "argon-dashboard"
   ],
   "author": "Creative Tim",
   "license": "MIT",
