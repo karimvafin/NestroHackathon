@@ -93,12 +93,14 @@ async def road_info(id):
     # potential_column = df.iloc[0:, 11]
     best_place_column = df.iloc[0:, 11]
     clients_column = df.iloc[0:, 12]
+
     oil_revenue_column = df2.iloc[0:, 2]
     das_revenue_column = df2.iloc[0:, 3]
-    total_revenue_column = df2.iloc[0:, 4]
 
     for i in range(len(number_column)):
+        print(str(id), str(number_column.iloc[i]))
         if str(id) == str(number_column.iloc[i]):
+
             name = name_column.iloc[i]
             leng = len_column.iloc[i]
             road_coords = road_coords_column.iloc[i]
@@ -111,7 +113,7 @@ async def road_info(id):
             clients = clients_column.iloc[i]
             oil_revenue = oil_revenue_column.iloc[i]
             das_revenue = das_revenue_column.iloc[i]
-            total_revenue = total_revenue_column.iloc[i]
+            total_revenue = oil_revenue_column.iloc[i] + das_revenue_column.iloc[i]
 
             dictionary = {
                 "name": name,
