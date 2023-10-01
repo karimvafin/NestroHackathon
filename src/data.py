@@ -34,7 +34,7 @@ for ind, road in roads_df.iterrows():
     cities.append(cities_df[((cities_df['lat'] - road_lat_start) ** 2 +
                              (cities_df['lon'] - road_lon_start) ** 2 < (radius_cities / 6400) ** 1) | (
                                     (cities_df['lat'] - road_lat_end) ** 2 + (
-                                    cities_df['lon'] - road_lon_end) ** 2 < (radius_cities / 6400) ** 1)]['City'])
+                                    cities_df['lon'] - road_lon_end) ** 2 < (radius_cities / 6400) ** 1)]['City'].to_numpy())
 
     # АЗС Nestro
     radius_nestro_stations = 10
@@ -44,7 +44,7 @@ for ind, road in roads_df.iterrows():
                                                       (nestro_stations_df['lat'] - road_lat_end) ** 2 +
                                                       (nestro_stations_df['lon'] - road_lon_end) ** 2 < (
                                                               radius_nestro_stations / 6400) ** 1)][
-                               'lat'])
+                               'lat'].to_numpy())
 
     # Торговые центры
     radius_shopping_malls = 10
@@ -54,7 +54,7 @@ for ind, road in roads_df.iterrows():
                                                     (shopping_malls_df['lat'] - road_lat_end) ** 2 +
                                                     (shopping_malls_df['lon'] - road_lon_end) ** 2 < (
                                                             radius_shopping_malls / 6400) ** 1)][
-                              'name'])
+                              'name'].to_numpy())
 
     # АЗС других компаний
     radius_stations = 10
@@ -64,10 +64,39 @@ for ind, road in roads_df.iterrows():
                                                     (other_stations_df['lat'] - road_lat_end) ** 2 +
                                                     (other_stations_df['lon'] - road_lon_end) ** 2 < (
                                                             radius_stations / 6400) ** 1)][
-                              'name'])
+                              'name'].to_numpy())
 
     # Добавляем данные в таблицу
+    str_cities = []
+    str_nestro = []
+    str_other = []
+    str_malls = []
+
+    for i in range(len(cities)):
+        str_ = ''
+        for j in range(len(cities[i])):
+            str_ += str(cities[i][j])
+        str_cities.append(str_)
+        str_ = ''
+        for j in range(len(nestro_stations[i])):
+            str_ += str(nestro_stations[i][j])
+        str_nestro.append(str_)
+        str_ = ''
+        for j in range(len(other_stations[i])):
+            str_ += str(other_stations[i][j])
+        str_other.append(str_)
+        str_ = ''
+        for j in range(len(shopping_malls[i])):
+            str_ += str(shopping_malls[i][j])
+        str_malls.append(str_)
+
     roads_df['cities'] = pd.Series(cities)
     roads_df['nestro_stations'] = pd.Series(nestro_stations)
     roads_df['shopping_malls'] = pd.Series(shopping_malls)
     roads_df['other_stations'] = pd.Series(other_stations)
+
+    road_best_place = roads_df.copy()
+    road_best_place['cities'] = pd.Series(str_cities)
+    road_best_place['nestro_stations'] = pd.Series(str_nestro)
+    road_best_place['shopping_malls'] = pd.Series(str_malls)
+    road_best_place['other_stations'] = pd.Series(str_other)
