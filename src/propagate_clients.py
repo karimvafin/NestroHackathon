@@ -3,7 +3,7 @@ import pandas as pd
 from src.ClientPropagator import ClientPropagator
 
 import src.data_for_clients as data
-from src.total_revenue import calculate_total_revenue
+
 
 
 def propagete_clients():
@@ -28,3 +28,4 @@ def propagete_clients():
     roads_rating['destination_coords'] = data.roads_df['destination_coords']
     roads_rating['rating'] = data.traffic_df['Авто в день'] / data.traffic_df['Авто в день'].max()
     roads_rating.to_excel('../data/clients/roads_rating.xlsx')
+

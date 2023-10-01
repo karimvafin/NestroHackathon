@@ -136,5 +136,3 @@ def calculate_total_revenue():
     calculate_DAS_revenue()
 
 
-
-calculate_total_revenue()
