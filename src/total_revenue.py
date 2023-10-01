@@ -6,15 +6,15 @@ import numpy as np
 
 
 def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_place.xlsx",
-                            data_traffic_file_path="../data/origin/cars_length_percent.xlsx",
+                            data_traffic_file_path="../data/origin/cars_length_procent.xlsx",
                             data_fuel_file_path="../data/origin/fuel.xlsx",
-                            data_output_file="../data/revenue/output/total_revenue.xlsx"):
+                            data_output_file="../data/revenue/total_revenue.xlsx"):
     """
         Функция рассчитывает прибыль заправок от реализации топлива
 
         Args:
             clients_data_file_path (str): путь к excel файлу с данными о количестве клиентов на заправке.
-                'Number' - номер дороги
+                'Номер' - номер дороги
                 'Name' - название дороги,
                 'clients' - кол-во клиентов на заправке.
 
@@ -55,18 +55,18 @@ def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_pla
                     (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Deisel, euro'])
 
     data_output = pd.DataFrame()
-    data_output['Номер'] = data['Number']
-    data_output['Название'] = data['Name']
+    data_output['Номер'] = data['Номер']
+    data_output['Название'] = data['Название']
     data_output['Доход от реализации топлива, евро'] = revenue
 
     data_output.to_excel(data_output_file, index=False)
 
 
-def calculate_DAS_revenue(clients_data_file_path="../data/revenue/input/NameClients.xlsx",
-                          best_place_data_file_path="../data/revenue/input/BestPlace.xlsx",
-                          supemarket_cafe_data_file_path="../data/revenue/input/cafe_supermarket.xlsx",
-                          data_das_file_path="../data/revenue/input/das.xlsx",
-                          data_output_file="../data/revenue/output/total_revenue.xlsx"):
+def calculate_DAS_revenue(clients_data_file_path="../data/clients/road_best_place.xlsx",
+                          best_place_data_file_path="../data/clients/road_best_place.xlsx",
+                          supemarket_cafe_data_file_path="../data/origin/cafe_supermarket.xlsx",
+                          data_das_file_path="../data/origin/das.xlsx",
+                          data_output_file="../data/revenue/total_revenue.xlsx"):
     """
         Функция рассчитывает прибыль заправок от ДАС
     Args:
@@ -135,3 +135,5 @@ def calculate_total_revenue():
     calculate_fuel_revenue()
     calculate_DAS_revenue()
 
+
+calculate_total_revenue()
