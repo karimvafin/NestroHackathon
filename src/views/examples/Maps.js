@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Card, Container, Row } from 'reactstrap';
 import Header from 'components/Headers/Header.js';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Card, Container, Row } from 'reactstrap';
 
 const Maps = () => {
   const mapOptions = {
@@ -15,7 +15,7 @@ const Maps = () => {
   const ref = useRef();
   const navigate = useNavigate();
 
-  const src = "https://nestro2.pavel0dibr.repl.co/main";
+  const src = "https://nestrohackathon.pavel0dibr.repl.co/main";
 
   const [data, setData] = useState([]);
 

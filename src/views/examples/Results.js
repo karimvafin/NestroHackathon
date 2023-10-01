@@ -77,7 +77,7 @@ const Results = () => {
   const number = params.number;
   const id = params.id;
 
-  const src = `https://nestro2.pavel0dibr.repl.co/road?id=${params.id}`;
+  const src = `https://nestrohackathon.pavel0dibr.repl.co/road?id=${params.id}`;
 
   const [data, setData] = useState([]);
 
@@ -138,6 +138,21 @@ const Results = () => {
       label: 'Other Stations',
       children: data ? data.other_stations : "loading",
     },
+    {
+      key: '4',
+      label: 'Car service',
+      children: data ? data.car_service : "loading",
+    },
+    {
+      key: '5',
+      label: 'Parking',
+      children: data ? data.parking : "loading",
+    },
+    {
+      key: '6',
+      label: 'Total revenue',
+      children: data ? data.total_revenue : "loading",
+    }
   ];
 
   return (

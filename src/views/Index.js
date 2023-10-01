@@ -1,28 +1,27 @@
-import { useState, useEffect } from "react";
-import classnames from "classnames";
 import Chart from "chart.js";
-import { Line, Bar } from "react-chartjs-2";
+import classnames from "classnames";
+import Header from "components/Headers/Header.js";
+import { useEffect, useState } from "react";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
+  CardHeader,
+  Col,
+  Container,
+  Nav,
   NavItem,
   NavLink,
-  Nav,
-  Progress,
-  Table,
-  Container,
   Row,
-  Col,
+  Table
 } from "reactstrap";
 import {
-  chartOptions,
-  parseOptions,
   chartExample1,
   chartExample2,
+  chartOptions,
+  parseOptions,
 } from "variables/charts.js";
-import Header from "components/Headers/Header.js";
 
 const Index = (props) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -32,7 +31,7 @@ const Index = (props) => {
 
   async function fetchData() {
     try {
-      const response = await fetch("https://nestro2.pavel0dibr.repl.co/main", {
+      const response = await fetch("https://nestrohackathon.pavel0dibr.repl.co/main", {
         method: "GET",
         headers: {
           accept: "application/json",

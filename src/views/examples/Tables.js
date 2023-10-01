@@ -1,26 +1,17 @@
+import Header from "components/Headers/Header.js";
+import { useEffect, useState } from "react";
 import {
   Badge,
   Card,
-  CardHeader,
   CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  Button,
+  CardHeader,
   Col,
-  UncontrolledTooltip,
+  Container,
+  Media,
+  Progress,
+  Row,
+  Table
 } from "reactstrap";
-import Header from "components/Headers/Header.js";
-import { useState, useEffect } from "react";
 
 const Tables = () => {
 
@@ -36,31 +27,31 @@ const Tables = () => {
   const [showAllCarDealerships, setShowAllCarDealerships] = useState(false);
 
   useEffect(() => {
-  fetch('https://nestro2.pavel0dibr.repl.co/gas_station')
+  fetch('https://nestrohackathon.pavel0dibr.repl.co/gas_station')
     .then((response) => response.json())
     .then((data) => setGasStations(data));
 }, []);
 
 useEffect(() => {
-  fetch('https://nestro2.pavel0dibr.repl.co/shopping_malls')
+  fetch('https://nestrohackathon.pavel0dibr.repl.co/shopping_malls')
     .then((response) => response.json())
     .then((data) => setShoppingMalls(data));
 }, []);
 
 useEffect(() => {
-  fetch('https://nestro2.pavel0dibr.repl.co/parking_taxistand_trainstation_transitstation')
+  fetch('https://nestrohackathon.pavel0dibr.repl.co/parking_taxistand_trainstation_transitstation')
     .then((response) => response.json())
     .then((data) => setParkingStations(data));
 }, []);
 
 useEffect(() => {
-  fetch('https://nestro2.pavel0dibr.repl.co/cafe_supermarket')
+  fetch('https://nestrohackathon.pavel0dibr.repl.co/cafe_supermarket')
     .then((response) => response.json())
     .then((data) => setCafeSupermarkets(data));
 }, []);
 
 useEffect(() => {
-  fetch('https://nestro2.pavel0dibr.repl.co/car_dealer_rental_repair_wash')
+  fetch('https://nestrohackathon.pavel0dibr.repl.co/car_dealer_rental_repair_wash')
     .then((response) => response.json())
     .then((data) => setCarDealerships(data));
 }, []);
