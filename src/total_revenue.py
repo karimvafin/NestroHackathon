@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 
 
-def calculate_fuel_revenue(clients_data_file_path="../data/revenue/input/NameClients.xlsx",
-                            data_traffic_file_path="../data/revenue/input/cars_length_percent.xlsx",
-                            data_fuel_file_path="../data/revenue/input/fuel.xlsx",
+def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_place.xlsx",
+                            data_traffic_file_path="../data/origin/cars_length_percent.xlsx",
+                            data_fuel_file_path="../data/origin/fuel.xlsx",
                             data_output_file="../data/revenue/output/total_revenue.xlsx"):
     """
         Функция рассчитывает прибыль заправок от реализации топлива
