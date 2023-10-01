@@ -15,7 +15,7 @@ def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_pla
         Args:
             clients_data_file_path (str): путь к excel файлу с данными о количестве клиентов на заправке.
                 'Номер' - номер дороги
-                'Name' - название дороги,
+                'Название' - название дороги,
                 'clients' - кол-во клиентов на заправке.
 
             data_traffic_file_path (str):
@@ -136,4 +136,3 @@ def calculate_total_revenue():
     calculate_DAS_revenue()
 
 
-calculate_total_revenue()
