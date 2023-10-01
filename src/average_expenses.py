@@ -1,6 +1,6 @@
-'''
+"""
 Модуль рассчитывает средний чек на заправке
-'''
+"""
 import pandas as pd
 import numpy as np
 
@@ -14,11 +14,13 @@ def calculate_total_revenue(clients_data_file_path="../data/revenue/input/NameCl
 
         Args:
             clients_data_file_path (str): путь к excel файлу с данными о количестве клиентов на заправке.
-              'Name' - название дороги,
-              'clients' - кол-во клиентов на заправке.
+                'Number' - номер дороги
+                'Name' - название дороги,
+                'clients' - кол-во клиентов на заправке.
 
             data_traffic_file_path (str):
-               '< 5,5 m', '5,5 - 12 m', '12 - 16,5 m', '> 16,5 m' - трафик на дороге по соответствующим длинам кузова.
+                '< 5,5 m', '5,5 - 12 m', '12 - 16,5 m', '> 16,5 m' - трафик на дороге
+                по соответствующим длинам кузова в процентах.
 
             data_fuel_file_path (str):
                 '95, euro', 'Deisel, euro' - стоимость 95 бензина и дизеля в евро для каждой заправки.
@@ -53,13 +55,12 @@ def calculate_total_revenue(clients_data_file_path="../data/revenue/input/NameCl
     # от ДАС
     das_revenue = data_das['средний чек на ДАС в районе'] * data['clients']
 
-    total_revenue = pd.DataFrame(data={'Название': data['Name'],
+    total_revenue = pd.DataFrame(data={'Номер': data['Number'], 'Название': data['Name'],
                                        'Доход от реализации топлива, евро': fuel_revenue,
                                        'Доход от ДАС, евро': das_revenue,
-                                       'Итог, евро': fuel_revenue*das_revenue})
+                                       'Итог, евро': fuel_revenue+das_revenue})
 
-    total_revenue.to_excel("../data/revenue/output/total_revenue.xlsx")
-
+    total_revenue.to_excel("../data/revenue/output/total_revenue.xlsx", index=False)
 
 
 calculate_total_revenue()
