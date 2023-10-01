@@ -2,16 +2,16 @@ import pandas as pd
 from geopy.distance import geodesic
 
 # Выгрузка данных
-roads_df = pd.read_excel("../data/clients/roads_potential.xlsx")
-# roads_df = pd.read_excel("../data/origin/roads.xlsx")
-cities_df = pd.read_excel("../data/origin/latlonCities.xlsx")
+roads_df = pd.read_excel("data/clients/roads_potential.xlsx")
+# roads_df = pd.read_excel("data/origin/roads.xlsx")
+cities_df = pd.read_excel("data/origin/latlonCities.xlsx")
 cities_df['ratio'] = cities_df['Population'] / cities_df['Population'].max()
-shopping_malls_df = pd.read_excel("../data/origin/shopping_mall.xlsx")
-nestro_stations_df = pd.read_excel("../data/origin/latlonNestroStations.xlsx")
-traffic_df = pd.read_excel("../data/origin/traffic_daily.xlsx")
-other_stations_df = pd.read_excel("../data/origin/gas_station.xlsx")
-car_service_df = pd.read_excel("../data/origin/car_dealer_rental_repair_wash.xlsx")
-parking_df = pd.read_excel("../data/origin/parking|taxi_stand|train_station|transit_station.xlsx")
+shopping_malls_df = pd.read_excel("data/origin/shopping_mall.xlsx")
+nestro_stations_df = pd.read_excel("data/origin/latlonNestroStations.xlsx")
+traffic_df = pd.read_excel("data/origin/traffic_daily.xlsx")
+other_stations_df = pd.read_excel("data/origin/gas_station.xlsx")
+car_service_df = pd.read_excel("data/origin/car_dealer_rental_repair_wash.xlsx")
+parking_df = pd.read_excel("data/origin/parking|taxi_stand|train_station|transit_station.xlsx")
 
 # Данные о близлежащих городах, АЗС и ТЦ
 cities = []

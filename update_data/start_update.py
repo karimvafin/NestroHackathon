@@ -1,9 +1,9 @@
-from roads import update_roads
-from shopping_mall import update_shopping_malls
-from parking_taxi_stand_train_station_transit_station import update_parking_taxi_stand_train_station_transit_stations
-from gas_station import update_gas_stations
-from car_dealer_rental_repair_wash import update_car_dealer_rental_repair_wash
-from cafe_supermarket import update_cafe_supermarkets
+from update_data.roads import update_roads
+from update_data.shopping_mall import update_shopping_malls
+from update_data.parking_taxi_stand_train_station_transit_station import update_parking_taxi_stand_train_station_transit_stations
+from update_data.gas_station import update_gas_stations
+from update_data.car_dealer_rental_repair_wash import update_car_dealer_rental_repair_wash
+from update_data.cafe_supermarket import update_cafe_supermarkets
 
 from src.total_revenue import calculate_total_revenue
 from src.propagate_clients import propagete_clients
@@ -35,8 +35,8 @@ def update_geo_data():
 
 def update_all_data():
 
-    """ Выполнение update_roads() может занять до часа """
-    # update_roads()   WARNING прежде чем раскоментировать функцию, прочитайте документацию к ней выше ^^.
+    """ Выполнение update_geo_data() может занять до часа """
+    # update_geo_data()   WARNING прежде чем раскоментировать функцию, прочитайте документацию к ней выше ^^.
     propagete_clients()
     calculate_total_revenue()
 

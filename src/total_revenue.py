@@ -5,10 +5,10 @@ import pandas as pd
 import numpy as np
 
 
-def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_place.xlsx",
-                            data_traffic_file_path="../data/origin/cars_length_procent.xlsx",
-                            data_fuel_file_path="../data/origin/fuel.xlsx",
-                            data_output_file="../data/revenue/total_revenue.xlsx"):
+def calculate_fuel_revenue(clients_data_file_path="data/clients/road_best_place.xlsx",
+                            data_traffic_file_path="data/origin/cars_length_procent.xlsx",
+                            data_fuel_file_path="data/origin/fuel.xlsx",
+                            data_output_file="data/revenue/total_revenue.xlsx"):
     """
         Функция рассчитывает прибыль заправок от реализации топлива
 
@@ -62,11 +62,11 @@ def calculate_fuel_revenue(clients_data_file_path="../data/clients/road_best_pla
     data_output.to_excel(data_output_file, index=False)
 
 
-def calculate_DAS_revenue(clients_data_file_path="../data/clients/road_best_place.xlsx",
-                          best_place_data_file_path="../data/clients/road_best_place.xlsx",
-                          supemarket_cafe_data_file_path="../data/origin/cafe_supermarket.xlsx",
-                          data_das_file_path="../data/origin/das.xlsx",
-                          data_output_file="../data/revenue/total_revenue.xlsx"):
+def calculate_DAS_revenue(clients_data_file_path="data/clients/road_best_place.xlsx",
+                          best_place_data_file_path="data/clients/road_best_place.xlsx",
+                          supemarket_cafe_data_file_path="data/origin/cafe_supermarket.xlsx",
+                          data_das_file_path="data/origin/das.xlsx",
+                          data_output_file="data/revenue/total_revenue.xlsx"):
     """
         Функция рассчитывает прибыль заправок от ДАС
     Args:

@@ -169,9 +169,9 @@ async def car_dealer_rental_repair_wash():
 
   
 if __name__ == '__main__':
-    update_all_data()
+    #update_all_data()
     uvicorn.run(app)
-    #uvicorn.run(app, host="0.0.0.0", port=8000)
+
 
 
 

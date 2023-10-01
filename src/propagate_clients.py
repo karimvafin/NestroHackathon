@@ -19,7 +19,7 @@ def propagete_clients():
     road_best_place_df = data.roads_df.copy()
     road_best_place_df['best_place'] = pd.Series(best_places)
     road_best_place_df['clients'] = pd.Series(clients)
-    road_best_place_df.to_excel('../data/clients/road_best_place.xlsx')
+    road_best_place_df.to_excel('data/clients/road_best_place.xlsx')
 
     roads_rating = pd.DataFrame()
     roads_rating['Номер'] = data.roads_df['Номер']
@@ -27,5 +27,5 @@ def propagete_clients():
     roads_rating['origin_coords'] = data.roads_df['origin_coords']
     roads_rating['destination_coords'] = data.roads_df['destination_coords']
     roads_rating['rating'] = data.traffic_df['Авто в день'] / data.traffic_df['Авто в день'].max()
-    roads_rating.to_excel('../data/clients/roads_rating.xlsx')
+    roads_rating.to_excel('data/clients/roads_rating.xlsx')
 
