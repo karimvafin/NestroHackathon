@@ -83,16 +83,16 @@ async def road_info(id):
     df2 = pd.read_excel(file_path2)
 
     # Получаем первую колонку из DataFrame
-    number_column = df.iloc[0:, 1]  # номер
-    name_column = df.iloc[0:, 2]  # название
-    road_coords_column = df.iloc[0:, 5]  # coords start
-    len_column = df.iloc[0:, 6]
-    cities_column = df.iloc[0:, 7]
-    malls_column = df.iloc[0:, 9]
-    other_stations_column = df.iloc[0:, 10]
+    number_column = df.iloc[0:, 2]  # номер
+    name_column = df.iloc[0:, 3]  # название
+    road_coords_column = df.iloc[0:, 6]  # coords start
+    len_column = df.iloc[0:, 7]
+    cities_column = df.iloc[0:, 8]
+    malls_column = df.iloc[0:, 10]
+    other_stations_column = df.iloc[0:, 11]
     # potential_column = df.iloc[0:, 11]
-    best_place_column = df.iloc[0:, 11]
-    clients_column = df.iloc[0:, 12]
+    best_place_column = df.iloc[0:, 12]
+    clients_column = df.iloc[0:, 13]
 
     oil_revenue_column = df2.iloc[0:, 2]
     das_revenue_column = df2.iloc[0:, 3]
