@@ -156,7 +156,7 @@ async def parking_taxistand_trainstation_transitstation():
 async def car_dealer_rental_repair_wash():
     return await car_dealer_rental_repair_wash_tables()
 
-  
+
 if __name__ == '__main__':
     uvicorn.run(app)
     #uvicorn.run(app, host="0.0.0.0", port=8000)
