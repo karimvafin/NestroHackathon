@@ -1,10 +1,7 @@
 const Chart = require("chart.js");
-//
-// Chart extension for making the bars rounded
-// Code from: https://codepen.io/jedtrow/full/ygRYgo
-//
 
-Chart.elements.Rectangle.prototype.draw = function () {
+
+Chart.elements.Rectangle.prototype.draw = function() {
   var ctx = this._chart.ctx;
   var vm = this._view;
   var left, right, top, bottom, signX, signY, borderSkipped, radius;
@@ -32,6 +29,38 @@ Chart.elements.Rectangle.prototype.draw = function () {
     signY = 1;
     borderSkipped = vm.borderSkipped || "left";
   }
+
+  // Canvas doesn't allow us to stroke inside the width so we can
+  // adjust the sizes to fit if we're setting a stroke on the line
+  if (borderWidth) {
+    // borderWidth shold be less than bar width and bar height.
+    var barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
+    borderWidth = borderWidth > barSize ? barSize : borderWidth;
+    var halfStroke = borderWidth / 2;
+    // Adjust borderWidth when bar top position is near vm.base(zero).
+    var borderLeft = left + (borderSkipped !== "left" ? halfStroke * signX : 0);
+    var borderRight =
+      right + (borderSkipped !== "right" ? -halfStroke * signX : 0);
+    var borderTop = top + (borderSkipped !== "top" ? halfStroke * signY : 0);
+    var borderBottom =
+      bottom + (borderSkipped !== "bottom" ? -halfStroke * signY : 0);
+    // not become a vertical line?
+    if (borderLeft !== borderRight) {
+      top = borderTop;
+      bottom = borderBottom;
+    }
+    // not become a horizontal line?
+    if (borderTop !== borderBottom) {
+      left = borderLeft;
+      right = borderRight;
+    }
+  }
+
+  ctx.beginPath();
+  ctx.fillStyle = vm.backgroundColor;
+  ctx.strokeStyle = vm.borderColor;
+  ctx.lineWidth = borderWidth;
+
 
   // Corner points, from bottom-left to bottom-right clockwise
   // | 1 2 |
@@ -325,9 +354,12 @@ let chartExample2 = {
       yAxes: [
         {
           ticks: {
-            callback: function (value) {
-                return value;
-            },
+            min: 9000, // Минимальное значение на шкале y
+          max: 15000, // Максимальное значение на шкале y
+          stepSize: 1000, // Шаг шкалы
+          callback: function (value) {
+            return value.toString();
+          },
           },
         },
       ],

@@ -31,7 +31,7 @@ const Index = (props) => {
 
   async function fetchData() {
     try {
-      const response = await fetch("https://nestrohackathon.pavel0dibr.repl.co/main", {
+      const response = await fetch("https://nestrohackathon.pavel0dibr.repl.co/roads_dashboards", {
         method: "GET",
         headers: {
           accept: "application/json",
@@ -111,6 +111,8 @@ const Index = (props) => {
                     </Nav>
                   </div>
                 </Row>
+
+
               </CardHeader>
               <CardBody>
                 <div className="chart">
@@ -123,25 +125,40 @@ const Index = (props) => {
               </CardBody>
             </Card>
           </Col>
+
+
           <Col xl="4">
-            <Card className="shadow">
-              <CardHeader className="bg-transparent">
-                <Row className="align-items-center">
-                  <div className="col">
-                    <h6 className="text-uppercase text-muted ls-1 mb-1">
-                      Performance
-                    </h6>
-                    <h2 className="mb-0">Total orders</h2>
+              <Card className="shadow">
+                <CardHeader className="bg-transparent">
+                  <Row className="align-items-center">
+                    <div className="col">
+                      <h6 className="text-uppercase text-muted ls-1 mb-1">
+                        Refuelling stations
+                      </h6>
+                      <h2 className="mb-0">Projected profits</h2>
+                    </div>
+                  </Row>
+                </CardHeader>
+                <CardBody>
+                  {/* Chart */}
+                  <div className="chart">
+                  <Bar
+                    data={{
+                      labels: ["Lamovita - Ivanjska", "Milići - Vlasenica", "Šipovo - Novo Selo", "Prud - Šamac 2", "Vrbaška 2 - Ivanjska"], // Заменяем метки на числа
+                      datasets: [
+                        {
+                          label: "Sales",
+                          data: [12245, 13967, 12589, 11875, 11956], // Заменяем данные на числа
+                          maxBarThickness: 10,
+                        },
+                      ],
+                    }}
+                    options={chartExample2.options}
+                  />
                   </div>
-                </Row>
-              </CardHeader>
-              <CardBody>
-                <div className="chart">
-                  <Bar data={chartExample2.data} options={chartExample2.options} />
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
+                </CardBody>
+              </Card>
+            </Col>
         </Row>
         <Row className="mt-5">
           <Col className="mb-5 mb-xl-0" xl="8">
@@ -171,23 +188,33 @@ const Index = (props) => {
                   <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Rate</th>
+                    <th scope="col">Best place</th>
+                    <th scope="col">Clients</th>
+                    <th scope="col">Oil revenue</th>
+                    <th scope="col">Das revenue</th>
                   </tr>
                 </thead>
                 <tbody>
                   {showAllRoads
                     ? replitData.map((item, index) => (
                         <tr key={index}>
-                          <th scope="row">{item.id}</th>
+                          <th scope="row">{item.number}</th>
                           <td>{item.name}</td>
                           <td>{item.rating}</td>
+                          <td>{item.best_place}</td>
+                          <td>{item.clients}</td>
+                          <td>{item.oil_revenue}</td>
+                          <td>{item.das_revenue}</td>
                         </tr>
                       ))
                     : replitData.slice(0, 9).map((item, index) => (
                         <tr key={index}>
-                          <th scope="row">{item.id}</th>
+                          <th scope="row">{item.number}</th>
                           <td>{item.name}</td>
-                          <td>{item.rating}</td>
+                          <td>{item.best_place}</td>
+                          <td>{item.clients}</td>
+                          <td>{item.oil_revenue}</td>
+                          <td>{item.das_revenue}</td>
                         </tr>
                       ))}
                 </tbody>
