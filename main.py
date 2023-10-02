@@ -142,6 +142,49 @@ async def road_info(id):
     return False
 
 
+@app.get("/roads_dashboards")
+async def road_info():
+    # Указываем путь к файлу Excel
+    file_path = 'data/clients/road_best_place.xlsx'
+    file_path2 = 'data/revenue/total_revenue.xlsx'
+
+    # Читаем файл Excel и сохраняем данные в переменную df           uv(DataFrame)
+    df = pd.read_excel(file_path)
+    df2 = pd.read_excel(file_path2)
+
+    # Получаем колонки из DataFrame
+    number_column = df.iloc[0:, 2]  # номер
+    name_column = df.iloc[0:, 3]  # название
+    potential_column = df.iloc[0:, 14]
+    best_place_column = df.iloc[0:, 15]
+    clients_column = df.iloc[0:, 16]
+
+    oil_revenue_column = df2.iloc[0:, 2]
+    das_revenue_column = df2.iloc[0:, 3]
+
+    data_for_return = []
+
+    for i in range(len(number_column)):
+        number = number_column.iloc[i]
+        name = name_column.iloc[i]
+        best_place = best_place_column.iloc[i]
+        clients = clients_column.iloc[i]
+        oil_revenue = oil_revenue_column.iloc[i]
+        das_revenue = das_revenue_column.iloc[i]
+
+        dictionary = {
+            "number": str(number),
+            "name": name,
+            "best_place": str(best_place),
+            "clients": str(clients),
+            "oil_revenue": str(oil_revenue),
+            "das_revenue": str(das_revenue)
+        }
+        data_for_return.append(dictionary)
+
+    return data_for_return
+
+
 @app.get("/gas_station")
 async def gas_station():
     return await gas_station_tables()
@@ -168,7 +211,8 @@ async def car_dealer_rental_repair_wash():
 
   
 if __name__ == '__main__':
-    #update_all_data()
+    #update_all_data() функция которая пересчитывает выручку и все данные с google maps api, прежде чем ее запустить, прочитайте описание к ней
+
     uvicorn.run(app)
 
 
