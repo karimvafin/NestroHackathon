@@ -135,4 +135,10 @@ def calculate_total_revenue():
     calculate_fuel_revenue()
     calculate_DAS_revenue()
 
+    calculate_fuel_revenue(clients_data_file_path="data/clients/NestroStations.xlsx",
+                           data_output_file="data/revenue/total_revenue_NestroStations.xlsx")
+    calculate_DAS_revenue(clients_data_file_path="data/clients/NestroStations.xlsx",
+                          data_output_file="data/revenue/total_revenue_NestroStations.xlsx")
+
+
 
