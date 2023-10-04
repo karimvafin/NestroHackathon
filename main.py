@@ -144,6 +144,79 @@ async def road_info(id):
     return False
 
 
+@app.get("/best_places")
+async def best_places():
+    # Указываем путь к файлу Excel
+    file_path = 'data/clients/road_best_place.xlsx'
+    file_path2 = 'data/revenue/total_revenue.xlsx'
+
+    # Читаем файл Excel и сохраняем данные в переменную df           uv(DataFrame)
+    df = pd.read_excel(file_path)
+    df2 = pd.read_excel(file_path2)
+
+    # Получаем колонки из DataFrame
+    number_column = df.iloc[0:, 2]  # номер
+    name_column = df.iloc[0:, 3]  # название
+    road_coords_column = df.iloc[0:, 6]  # coords start
+    len_column = df.iloc[0:, 7]
+    cities_column = df.iloc[0:, 8]
+    nestro_column = df.iloc[0:, 9]
+    malls_column = df.iloc[0:, 10]
+    other_stations_column = df.iloc[0:, 11]
+    car_service_column = df.iloc[0:, 12]
+    parking_column = df.iloc[0:, 13]
+    potential_column = df.iloc[0:, 14]
+    best_place_column = df.iloc[0:, 15]
+    clients_column = df.iloc[0:, 16]
+
+    oil_revenue_column = df2.iloc[0:, 2]
+    das_revenue_column = df2.iloc[0:, 3]
+
+    data_for_return = []
+    norma = max(oil_revenue_column + das_revenue_column)
+    print(norma)
+
+    for i in range(len(number_column)):
+        name = name_column.iloc[i]
+        leng = len_column.iloc[i]
+        road_coords = road_coords_column.iloc[i]
+        cities = cities_column.iloc[i]
+        nestro = nestro_column.iloc[i]
+        malls = malls_column.iloc[i]
+        other_stations = other_stations_column.iloc[i]
+        potential = potential_column.iloc[i]
+        best_place = best_place_column.iloc[i]
+        car_service = car_service_column.iloc[i]
+        parking = parking_column.iloc[i]
+        clients = clients_column.iloc[i]
+        oil_revenue = oil_revenue_column.iloc[i]
+        das_revenue = das_revenue_column.iloc[i]
+        total_revenue = oil_revenue_column.iloc[i] + das_revenue_column.iloc[i]
+        print(best_place, total_revenue)
+        if str(total_revenue) != "nan":
+            dictionary = {
+                # "name": name,
+                # "road_coords": road_coords,
+                # "leng": leng,
+                # "cities": cities,
+                # "nestro": nestro,
+                # "malls": malls,
+                # "other_stations": other_stations,
+                # "potential": potential,
+                "best_place": best_place,
+                # "car_service": car_service,
+                # "parking": parking,
+                # "clients": clients,
+                # "oil_revenue": oil_revenue,
+                # "das_revenue": das_revenue,
+                "total_revenue": total_revenue
+            }
+            data_for_return.append(dictionary)
+
+    return sorted(data_for_return, key=lambda x: x['total_revenue'], reverse=True)
+
+
+
 @app.get("/roads_dashboards")
 async def road_info():
     # Указываем путь к файлу Excel
@@ -224,8 +297,4 @@ if __name__ == '__main__':
 
     # Запускаем планировщик для сбора трафика
     #scheduler.start()
-
-
-
-
 
