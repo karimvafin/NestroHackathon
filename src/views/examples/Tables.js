@@ -64,9 +64,8 @@ const calculateRelativeRating = (rating) => {
   return (
     <>
       <Header />
-      {/* Page content */}
       <Container className="mt--7" fluid>
-        {/* Table */}
+
         <Row>
       <div className="col">
         <Card className="shadow">
@@ -186,7 +185,6 @@ const calculateRelativeRating = (rating) => {
 
 
 
-        {/* Dark table */}
         <Row className="mt-5">
       <div className="col">
         <Card className="bg-default shadow">

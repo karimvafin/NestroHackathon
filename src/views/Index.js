@@ -135,20 +135,21 @@ const Index = (props) => {
                       <h6 className="text-uppercase text-muted ls-1 mb-1">
                         Refuelling stations
                       </h6>
-                      <h2 className="mb-0">Projected profits</h2>
+                      <h2 className="mb-0">Top 5 earners</h2>
                     </div>
                   </Row>
                 </CardHeader>
                 <CardBody>
-                  {/* Chart */}
+
+                  
                   <div className="chart">
                   <Bar
                     data={{
-                      labels: ["Lamovita - Ivanjska", "Milići - Vlasenica", "Šipovo - Novo Selo", "Prud - Šamac 2", "Vrbaška 2 - Ivanjska"], // Заменяем метки на числа
+                      labels: ["(42.9552, 18.07961)", "(44.6142, 17.37939)", "(44.12425, 19.09284)", "(44.74729, 17.7895)", "(45.05552, 17.44179)"], // Заменяем метки на числа
                       datasets: [
                         {
                           label: "Sales",
-                          data: [12245, 13967, 12589, 11875, 11956], // Заменяем данные на числа
+                          data: [16904, 15689, 13827, 13331, 12993], 
                           maxBarThickness: 10,
                         },
                       ],

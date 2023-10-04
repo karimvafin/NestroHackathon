@@ -354,10 +354,10 @@ let chartExample2 = {
       yAxes: [
         {
           ticks: {
-            min: 9000, // Минимальное значение на шкале y
-          max: 15000, // Максимальное значение на шкале y
-          stepSize: 1000, // Шаг шкалы
-          callback: function (value) {
+            min: 12000, // Минимальное значение на шкале y
+            max: 17000, // Максимальное значение на шкале y
+            stepSize: 1000, // Шаг шкалы
+            callback: function (value) {
             return value.toString();
           },
           },

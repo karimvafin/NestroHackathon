@@ -7,11 +7,6 @@ import { CardType, Cards, CardWrapper } from 'components/cards/Card';
 import { Card, Container, Row } from 'reactstrap';
 import './Result.css';
 
-// reactstrap components
-import {
-  Col,
-} from "reactstrap";
-// core components
 import Header from "components/Headers/Header.js";
 
 const Results = () => {
@@ -52,7 +47,7 @@ const Results = () => {
         });
   
         marker.addListener('click', () => {
-          // Обработчик клика на маркере начальной точки
+
         });
   
         if (bestPlaceLatLng) {
@@ -62,7 +57,6 @@ const Results = () => {
           });
   
           bestPlaceMarker.addListener('click', () => {
-            // Обработчик клика на маркере "Best Place"
             console.log("Координаты точки Best Place:");
             console.log("Широта:", bestPlaceLatLng.lat);
             console.log("Долгота:", bestPlaceLatLng.lng);
@@ -158,7 +152,6 @@ const Results = () => {
   return (
     <>
       <Header />
-      {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
           <div className="col">

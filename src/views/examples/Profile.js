@@ -10,14 +10,12 @@ import {
     Input,
     Row,
 } from "reactstrap";
-// core components
 import UserHeader from "components/Headers/UserHeader.js";
 
 const Profile = () => {
   return (
     <>
       <UserHeader />
-      {/* Page content */}
       <Container className="mt--7" fluid>
         <Row>
           <Col className="order-xl-2 mb-5 mb-xl-0" xl="4">
@@ -158,7 +156,7 @@ const Profile = () => {
                     </Row>
                   </div>
                   <hr className="my-4" />
-                  {/* Address */}
+
                   <h6 className="heading-small text-muted mb-4">
                     Contact information
                   </h6>
@@ -236,7 +234,7 @@ const Profile = () => {
                     </Row>
                   </div>
                   <hr className="my-4" />
-                  {/* Description */}
+
                   <h6 className="heading-small text-muted mb-4">About me</h6>
                   <div className="pl-lg-4">
                     <FormGroup>

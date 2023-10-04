@@ -16,3 +16,45 @@
     width: 95%;
 }
 
+.block-styles {
+    margin-top: 48px;
+}
+
+.gradient-legend {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .gradient-legend-bar {
+    flex-grow: 1;
+    height: 100%;
+    background: linear-gradient(to right, #08C2FD, #0029FE);
+    cursor: pointer;
+  }
+  
+  .gradient-legend-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333; /* Цвет текста */
+    margin-top: 5px; /* Расстояние между текстом и полоской */
+  }
+  
+  .gradient-legend-low,
+  .gradient-legend-high {
+    position: absolute;
+    bottom: -25px;
+  }
+  
+  .gradient-legend-low {
+    left: 0;
+  }
+  
+  .gradient-legend-high {
+    right: 0;
+  }
+

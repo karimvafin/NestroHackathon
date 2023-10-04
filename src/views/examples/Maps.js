@@ -2,7 +2,8 @@ import axios from 'axios';
 import Header from 'components/Headers/Header.js';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, Container, Row } from 'reactstrap';
+import { Card, Col, Container, Row } from 'reactstrap';
+import './Result.css'
 
 const Maps = () => {
   const mapOptions = {
@@ -12,12 +13,15 @@ const Maps = () => {
   };
 
   const [map, setMap] = useState();
-  const ref = useRef();
+  const mapRef = useRef(null); 
+  const bestPlacesMapRef = useRef(null); 
   const navigate = useNavigate();
 
   const src = "https://nestrohackathon.pavel0dibr.repl.co/main";
 
   const [data, setData] = useState([]);
+  const [bestPlacesData, setBestPlacesData] = useState([]);
+  const [bestPlacesMarkers, setBestPlacesMarkers] = useState([]);
 
   useEffect(() => {
     axios
@@ -34,6 +38,22 @@ const Maps = () => {
         console.error('Ошибка при получении данных:', error);
       });
   }, [map]);
+
+  useEffect(() => {
+    axios
+      .get("https://nestrohackathon.pavel0dibr.repl.co/best_places")
+      .then(response => {
+        console.log(response.data);
+        setBestPlacesData(response.data);
+
+        if (bestPlacesMapRef.current) {
+          createBestPlaceMarkers(bestPlacesMapRef.current, response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Ошибка при получении данных о "best_place":', error);
+      });
+  }, [bestPlacesMapRef]);
 
   const createRoads = (map, data) => {
     data.forEach(({ id, name, coordinates, rating }) => {
@@ -96,18 +116,77 @@ const Maps = () => {
     });
   };
 
+  const createBestPlaceMarkers = (map, data) => {
+    const markers = data.map(place => {
+      const [lat, lng] = place.best_place
+        .replace("(", "")
+        .replace(")", "")
+        .split(",")
+        .map(parseFloat);
+  
+      let markerIcon = null;
+  
+      if (place.total_revenue < 5000) {
+        markerIcon = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+      } else if (place.total_revenue < 10000) {
+        markerIcon = 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png';
+      } else {
+        markerIcon = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png';
+      }
+  
+      const marker = new window.google.maps.Marker({
+        position: { lat, lng },
+        map: map,
+        // title: `Best Place (${lat}, ${lng})`,
+        icon: {
+          url: markerIcon,
+        },
+      });
+  
+      const infoWindow = new window.google.maps.InfoWindow({
+        content: `<div>
+                    <p>Best Place: ${place.best_place}</p>
+                    <p>Total Revenue: ${place.total_revenue}</p>
+                 </div>`
+      });
+  
+      marker.addListener('mouseover', () => {
+        infoWindow.open(map, marker);
+      });
+  
+      marker.addListener('mouseout', () => {
+        infoWindow.close();
+      });
+  
+      marker.addListener('click', () => {
+        
+      });
+  
+      return marker;
+    });
+  
+    setBestPlacesMarkers(markers);
+  };
+
   useEffect(() => {
-    const loadMap = () => {
-      setMap(new window.google.maps.Map(ref.current, mapOptions));
+    const loadMaps = () => {
+      setMap(new window.google.maps.Map(mapRef.current, mapOptions));
+
+      if (!bestPlacesMapRef.current) {
+        bestPlacesMapRef.current = new window.google.maps.Map(
+          document.getElementById("best-places-map"),
+          mapOptions
+        );
+      }
     };
 
     if (!window.google || !window.google.maps) {
       const script = document.createElement('script');
       script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB7ggCeswm2Oq7JqVR6qXE1l5Ua631yFo0&libraries=places`; 
-      script.onload = loadMap;
+      script.onload = loadMaps;
       document.head.appendChild(script);
     } else {
-      loadMap();
+      loadMaps();
     }
   }, []);
 
@@ -117,12 +196,18 @@ const Maps = () => {
     }
   }, [map, data]);
 
+  useEffect(() => {
+    if (bestPlacesMapRef.current) {
+      createBestPlaceMarkers(bestPlacesMapRef.current, bestPlacesData);
+    }
+  }, [bestPlacesMapRef, bestPlacesData]);
+
   const getGradientColor = (rating) => {
     const value1 = Math.round(rating * 255);
     const value2 = Math.round((1 - rating) * 255);
 
-    const r = 1;
-    const g = value1;
+    const r = 0;
+    const g = value2;
     const b = 254;
 
     const redHex = r.toString(16).padStart(2, '0');
@@ -131,19 +216,53 @@ const Maps = () => {
 
     return `#${redHex}${greenHex}${blueHex}`;
   };
+  
+  useEffect(() => {
+    const gradientLegend = document.querySelector(".gradient-legend");
+    const popup = document.createElement("div");
+    popup.className = "popup";
+    document.body.appendChild(popup);
+
+    gradientLegend.addEventListener("mousemove", (e) => {
+      const x = e.clientX - gradientLegend.getBoundingClientRect().left;
+      const percent = (x / gradientLegend.clientWidth) * 100;
+      popup.style.left = `${percent}%`;
+      popup.style.display = "block";
+      popup.innerText = `${Math.round(percent)}%`;
+    });
+
+    gradientLegend.addEventListener("mouseout", () => {
+      popup.style.display = "none";
+    });
+  }, []);
+
 
   return (
     <>
       <Header />
-      {/* Page content */}
       <Container className="mt--7" fluid>
-        <Row>
+        <Col>
           <div className="col">
             <Card className="shadow border-0">
-              <div ref={ref} id="map" style={{ width: '100%', height: '150vh' }} />
+              <div ref={mapRef} style={{ width: '100%', height: '150vh' }} />
             </Card>
+            <div className='block-styles'></div>
+            <div
+              className="gradient-legend"
+            >
+              {/* Текст "Низкий рейтинг" и "Высокий рейтинг" */}
+              <div className="gradient-legend-low">Низкий рейтинг</div>
+              {/* Элементы полоски с градиентом */}
+              <div className="gradient-legend-bar"></div>
+              <div className="gradient-legend-high">Высокий рейтинг</div>
+            </div>
+            <div className='block-styles'></div>
+            <Card>
+              <div id="best-places-map" style={{ width: '100%', height: '150vh' }} />
+            </Card>
+            <div className='block-styles'></div>
           </div>
-        </Row>
+        </Col>
       </Container>
     </>
   );
