@@ -250,6 +250,9 @@ def calculate_DAS_revenue_Nestro(clients_data_file_path="data/clients/NestroStat
 
     data_total_rev['Доход от ДАС, евро'] = revenue
 
+    data_total_rev['lat'] = data_best_place['lat']
+    data_total_rev['lon'] = data_best_place['lon']
+
     data_total_rev.to_excel(data_output_file, index=False)
 
 
@@ -262,6 +265,3 @@ def calculate_total_revenue():
 
     calculate_fuel_revenue_Nestro()
     calculate_DAS_revenue_Nestro()
-
-
-
