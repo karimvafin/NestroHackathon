@@ -38,6 +38,7 @@ def catch_traffic_now():
     постоянным, что позволяет постепенно расширять и улучшать датасет о трафике."""
 
     time = str(datetime.now().strftime("%Y-%m-%d %H:%M"))
+
     # Указываем путь к файлу Excel
     file_path = 'data/origin/replit.xlsx'
 
@@ -54,7 +55,7 @@ def catch_traffic_now():
     name = []
     coefs = []
 
-    for i in range(len(number_column)-150):
+    for i in range(len(number_column)):
         lat_start, lng_start = map(float, origin_coords_column.iloc[i].split(','))
         lat_end, lng_end = map(float, destination_coords_column.iloc[i].split(','))
         k = traffic_coef(start_point=(lat_start, lng_start), end_point=(lat_end, lng_end))
@@ -74,12 +75,3 @@ def catch_traffic_now():
 
     print(f'Новая таблица успешно создана и сохранена в файле {new_file_path}.')
 
-
-# Создаем объект планировщика
-scheduler = BlockingScheduler()
-
-# Запускаем функцию каждый час
-scheduler.add_job(catch_traffic_now, 'interval', hours=1)
-
-# Запускаем планировщик
-scheduler.start()

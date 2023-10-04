@@ -9,6 +9,8 @@ from page_tablets.parking_taxistand_trainstation_transitstation import parking_t
 from page_tablets.car_dealer_rental_repair_wash import car_dealer_rental_repair_wash_tables
 
 from update_data.start_update import update_all_data
+from update_data.traffic_daily import catch_traffic_now
+#from apscheduler.schedulers.blocking import BlockingScheduler
 
 app = FastAPI()
 
@@ -29,7 +31,7 @@ async def index():
 
 
 @app.get("/main")
-async def maiin():
+async def main():
     # Указываем путь к файлу Excel
     file_path = 'data/clients/roads_rating.xlsx'
 
@@ -214,6 +216,15 @@ if __name__ == '__main__':
     #update_all_data() функция которая пересчитывает выручку и все данные с google maps api, прежде чем ее запустить, прочитайте описание к ней
 
     uvicorn.run(app)
+    # Создаем объект планировщика
+    #scheduler = BlockingScheduler()
+
+    # Запускаем функцию каждый час
+    #scheduler.add_job(catch_traffic_now, 'interval', minutes=1)
+
+    # Запускаем планировщик для сбора трафика
+    #scheduler.start()
+
 
 
 
