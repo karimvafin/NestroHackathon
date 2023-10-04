@@ -90,6 +90,7 @@ def calculate_DAS_revenue(clients_data_file_path="data/clients/road_best_place.x
 
     r_distance = 3 #km - радиус, внутри которого учитываем конкурентов
     rating_max = 5 # максимальный рейтинг магазина/кафешки
+    param_model = 2
     feedback_n = max(data_supermarket_cafe['user_ratings_total'])
 
     shopping_malls_cafe = []  # список магазинов и кафешек рядом с каждой заправкой
@@ -120,7 +121,7 @@ def calculate_DAS_revenue(clients_data_file_path="data/clients/road_best_place.x
     probability[probability <= 0.] = 0.1
     probability[probability >= 1.] = 0.9
 
-    revenue = probability * data['clients'] * data_das['средний чек на ДАС в районе']
+    revenue = param_model * probability * data['clients'] * data_das['средний чек на ДАС в районе']
 
 
     data_total_rev['Доход от ДАС, евро'] = revenue
@@ -215,6 +216,7 @@ def calculate_DAS_revenue_Nestro(clients_data_file_path="data/clients/NestroStat
 
     r_distance = 3 #km - радиус, внутри которого учитываем конкурентов
     rating_max = 5 # максимальный рейтинг магазина/кафешки
+    param_model = 2
     feedback_n = max(data_supermarket_cafe['user_ratings_total'])
 
     shopping_malls_cafe = []  # список магазинов и кафешек рядом с каждой заправкой
@@ -245,7 +247,7 @@ def calculate_DAS_revenue_Nestro(clients_data_file_path="data/clients/NestroStat
     probability[probability <= 0.] = 0.1
     probability[probability >= 1.] = 0.9
 
-    revenue = probability * data['clients'] * data_das['средний чек на ДАС в районе']
+    revenue = param_model * probability * data['clients'] * data_das['средний чек на ДАС в районе']
 
 
     data_total_rev['Доход от ДАС, евро'] = revenue
