@@ -45,14 +45,14 @@ def calculate_fuel_revenue(clients_data_file_path="data/clients/road_best_place.
 
     # средний обьем бака авто с разной длиной кузова
     tankV55 = 45
-    tankV5_12 = 80
-    tankV12_16 = 300
-    tankV16 = 1200
+    tankV5_12 = 75
+    tankV12_16 = 250
+    tankV16 = 1000
 
     # расчет прибыли
     # от реализации топлива
     revenue = ((data['< 5,5 m'] * tankV55 + data['5,5 - 12 m'] * tankV5_12) * data_fuel['95, euro'] +
-                    (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Diesel, euro'])
+                    (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Diesel, euro'])*0.9
 
     data_output = pd.DataFrame()
     data_output['Номер'] = data['Номер']
@@ -168,14 +168,14 @@ def calculate_fuel_revenue_Nestro(clients_data_file_path="data/clients/NestroSta
 
     # средний обьем бака авто с разной длиной кузова
     tankV55 = 45
-    tankV5_12 = 80
-    tankV12_16 = 300
-    tankV16 = 1200
+    tankV5_12 = 75
+    tankV12_16 = 250
+    tankV16 = 1000
 
     # расчет прибыли
     # от реализации топлива
     revenue = ((data['< 5,5 m'] * tankV55 + data['5,5 - 12 m'] * tankV5_12) * data_fuel['95, euro'] +
-                    (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Diesel, euro'])
+                    (data['12 - 16,5 m'] * tankV12_16 + data['> 16,5 m'] * tankV16) * data_fuel['Diesel, euro'])*0.9
 
     data_output = pd.DataFrame()
     data_output['Номер'] = data['Номер']

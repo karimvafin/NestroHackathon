@@ -37,7 +37,7 @@ def update_all_data():
 
     """ Выполнение update_geo_data() может занять до часа """
     # update_geo_data()   WARNING прежде чем раскоментировать функцию, прочитайте документацию к ней выше ^^.
-    # propagete_clients()
+    propagete_clients()
     calculate_total_revenue()
 
 
