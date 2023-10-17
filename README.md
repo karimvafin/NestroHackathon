@@ -1,5 +1,6 @@
 # Хакатон Nestro 2023 
 Сертификат [Certificate_2023-10-17_22_35_09.188Z.pdf](https://github.com/karimvafin/NestroHackathon/files/12967970/Certificate_2023-10-17_22_35_09.188Z.pdf)
+
 Условие: https://drive.google.com/drive/folders/1RPAuaBL8BsY9ikYQtj5OR1ZfVIIdJo0s
 Презентация: [Road Analyzer (1) (1).pdf](https://github.com/karimvafin/NestroHackathon/files/12967996/Road.Analyzer.1.1.pdf)
 
