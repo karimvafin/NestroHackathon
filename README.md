@@ -5,7 +5,7 @@
 
 Презентация: [Road Analyzer (1) (1).pdf](https://github.com/karimvafin/NestroHackathon/files/12967996/Road.Analyzer.1.1.pdf)
 
-Видео демонстрация продукта: 
+Видео демонстрация продукта: https://disk.yandex.ru/d/HyMtsjeTKEfH6Q
 
 В этом репозитории содержится исходный код для решения 1-го трека хакатона (задача "Где заправка?") 
 
